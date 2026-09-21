@@ -46,7 +46,9 @@
       /* Markenfarben — nicht verändern */
       --volt:       #CCFF00;
       --volt-deep:  #B8E600;
-      --red:        #E30613;
+      --orange:     #FF4600;   /* UTRR-Primärfarbe */
+      --orange-dark:#CC3800;   /* abgedunkelt für Kleintext auf hellem Grund */
+      --slate:      #406488;   /* zweite Hügellinie im Logo */
 
       /* Deep Navy / Anthrazit */
       --navy:       #10141A;
@@ -70,6 +72,8 @@
       --mute:    var(--t-dark-mute);
       --line:    rgba(255,255,255,.10);
       --line-hi: rgba(255,255,255,.20);
+      /* Orange als Textfarbe — auf hellem Grund abgedunkelt, sonst fällt es durch AA */
+      --orange-text: var(--orange);
 
       /* Typografie */
       --fd: 'Barlow Condensed', sans-serif;
@@ -94,12 +98,14 @@
       background: var(--bg); color: var(--txt);
     }
     .ctx-light {
+      --orange-text: var(--orange-dark);
       --bg: var(--off); --surface: var(--pure);
       --txt: var(--t-light); --mute: var(--t-light-mute);
       --line: rgba(16,20,26,.12); --line-hi: rgba(16,20,26,.28);
       background: var(--bg); color: var(--txt);
     }
     .ctx-white {
+      --orange-text: var(--orange-dark);
       --bg: var(--pure); --surface: var(--off);
       --txt: var(--t-light); --mute: var(--t-light-mute);
       --line: rgba(16,20,26,.10); --line-hi: rgba(16,20,26,.26);
@@ -155,25 +161,41 @@
     .hill-canvas svg { width: 100%; height: auto; min-height: 100%; }
     .hill-canvas path { fill: none; stroke-linecap: round; }
 
-    /* ========= LOGO ========= */
+    /* ========= LOGO =========
+       Aufbau wie im Original: zwei sich kreuzende Taunus-Hügel
+       (stahlblau + volt), darunter ERICH-FILL mit rotem Bindestrich,
+       TRIATHLON in Volt, TAUNUSSTEIN zwischen roten Balken.
+       ========================= */
     .brand { display: inline-flex; align-items: center; gap: .7rem; }
-    .brand-mark { width: 2.6rem; height: auto; flex-shrink: 0; overflow: visible; }
-    .brand-mark .m-top { stroke: var(--volt); }
-    .brand-mark .m-bot { stroke: currentColor; opacity: .42; }
+    .brand-mark { width: 2.9rem; height: auto; flex-shrink: 0; overflow: visible; }
+    .brand-mark .m-slate { stroke: var(--slate); }
+    .brand-mark .m-volt  { stroke: var(--volt); }
     .brand-text { display: block; line-height: 1; }
     .brand-1 {
       display: block; font-family: var(--fd); font-weight: 900; font-style: italic;
-      font-size: 1.15rem; text-transform: uppercase; letter-spacing: .005em;
+      font-size: 1.1rem; text-transform: uppercase; letter-spacing: .005em;
     }
+    .brand-hy { color: var(--orange); }
     .brand-2 {
-      display: block; font-family: var(--fu); font-weight: 700;
-      font-size: .52rem; text-transform: uppercase; letter-spacing: .28em;
-      color: var(--mute); margin-top: .3rem;
+      display: block; font-family: var(--fd); font-weight: 900; font-style: italic;
+      font-size: .82rem; text-transform: uppercase; letter-spacing: .13em;
+      color: var(--volt); margin-top: .12rem;
+    }
+    .brand-3 {
+      display: flex; align-items: center; gap: .3rem;
+      font-family: var(--fu); font-weight: 700;
+      font-size: .46rem; text-transform: uppercase; letter-spacing: .26em;
+      color: var(--mute); margin-top: .26rem;
+    }
+    .brand-3::before, .brand-3::after {
+      content: ''; flex: 1 1 auto; min-width: .5rem; max-width: 1.1rem;
+      height: 2px; background: var(--orange); border-radius: 1px;
     }
     @media(max-width:420px){
-      .brand-mark { width: 2rem; }
-      .brand-1 { font-size: .95rem; }
-      .brand-2 { font-size: .46rem; letter-spacing: .22em; }
+      .brand-mark { width: 2.2rem; }
+      .brand-1 { font-size: .9rem; }
+      .brand-2 { font-size: .68rem; letter-spacing: .1em; }
+      .brand-3 { font-size: .42rem; letter-spacing: .2em; }
     }
 
     /* ========= TYPO-HELFER ========= */
@@ -221,8 +243,8 @@
     .btn-dark { background: var(--navy); color: var(--off); border-color: var(--navy); }
     .btn-dark:hover { background: var(--navy-soft); border-color: var(--navy-soft); transform: translateY(-2px); }
     /* Rot — sparsam, nur für einzelne Akzente */
-    .btn-red { background: var(--red); color: #fff; border-color: var(--red); }
-    .btn-red:hover { background: #c40511; border-color: #c40511; transform: translateY(-2px); }
+    .btn-orange { background: var(--orange); color: var(--navy); border-color: var(--orange); }
+    .btn-orange:hover { background: var(--orange-dark); border-color: var(--orange-dark); color: #fff; transform: translateY(-2px); }
 
     .btn-lg { padding: 1rem 2.3rem; font-size: .9375rem; }
     .btn-xl { padding: 1.15rem 2.8rem; font-size: 1rem; }
@@ -236,7 +258,7 @@
       border: 1px solid var(--line-hi); color: var(--mute);
     }
     .badge-volt { background: var(--volt); border-color: var(--volt); color: var(--navy); }
-    .badge-red  { background: transparent; border-color: var(--red); color: var(--red); }
+    .badge-orange { background: transparent; border-color: var(--orange-text); color: var(--orange-text); }
 
     /* ========= NAV ========= */
     .navbar {
@@ -320,9 +342,9 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
     /* Hügellinie direkt über dem Titel — das Logo, monumentalisiert */
-    .hero-mark { display: block; width: clamp(9rem, 26vw, 17rem); height: auto; margin-bottom: 1.1rem; overflow: visible; animation: riseIn .7s ease .12s both; }
-    .hero-mark .m-top { stroke: var(--volt); }
-    .hero-mark .m-bot { stroke: #fff; opacity: .38; }
+    .hero-mark { display: block; width: clamp(11rem, 32vw, 21rem); height: auto; margin-bottom: 1rem; overflow: visible; animation: riseIn .7s ease .12s both; }
+    .hero-mark .m-slate { stroke: var(--slate); }
+    .hero-mark .m-volt  { stroke: var(--volt); }
 
     .hero-title {
       font-family: var(--fd); font-weight: 900; font-style: italic;
@@ -333,11 +355,17 @@
     .hero-title .t2 { display: block; font-size: clamp(3rem, 10.5vw, 8rem); }
     .hero-title .t1 { color: var(--off); }
     .hero-title .t2 { color: var(--volt); }
+    .hero-hy { color: var(--orange); }
     .hero-title .t3 {
-      display: block; font-style: normal; font-weight: 700;
-      font-size: clamp(1rem, 2.9vw, 2rem);
-      letter-spacing: .34em; color: var(--t-dark-mute);
-      margin-top: .7rem;
+      display: flex; align-items: center; gap: .9rem;
+      font-style: normal; font-weight: 700;
+      font-size: clamp(.85rem, 2.4vw, 1.6rem);
+      letter-spacing: .34em; color: var(--off);
+      margin-top: .85rem; max-width: 24ch;
+    }
+    .hero-title .t3::before, .hero-title .t3::after {
+      content: ''; flex: 1 1 auto; min-width: 1.5rem;
+      height: 4px; background: var(--orange); border-radius: 2px;
     }
 
     .hero-sub {
@@ -409,7 +437,7 @@
     .news-card:hover { transform: translateY(-5px); border-color: var(--line-hi); box-shadow: 0 14px 32px rgba(16,20,26,.10); }
     .news-bar { height: 4px; background: var(--line-hi); }
     .bar-volt { background: var(--volt); }
-    .bar-red  { background: var(--red); }
+    .bar-orange { background: var(--orange); }
     .news-body { padding: 1.6rem; }
     .news-meta { display: flex; justify-content: space-between; align-items: center; gap: .75rem; margin-bottom: .9rem; }
     .news-date { font-family: var(--fu); font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; color: var(--mute); }
@@ -559,12 +587,12 @@
       display: flex; align-items: center; gap: 1.5rem;
       margin-top: 2.25rem; padding: 1.5rem 1.9rem;
       background: var(--surface); border: 1px solid var(--line);
-      border-left: 4px solid var(--red); border-radius: var(--r);
+      border-left: 4px solid var(--orange); border-radius: var(--r);
       transition: transform .25s, border-color .25s, box-shadow .25s;
     }
     .briefing:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(16,20,26,.12); }
     .briefing-body { flex: 1; min-width: 0; }
-    .briefing-label { font-family: var(--fu); font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--red); margin-bottom: .3rem; }
+    .briefing-label { font-family: var(--fu); font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--orange-text); margin-bottom: .3rem; }
     .briefing-title { font-family: var(--fu); font-size: 1.05rem; font-weight: 800; margin-bottom: .3rem; }
     .briefing-desc { font-size: .82rem; color: var(--mute); line-height: 1.65; }
     .briefing-arrow { flex-shrink: 0; transition: transform .25s; }
@@ -576,7 +604,6 @@
     .sp-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3.5rem; }
     .sp-item { font-family: var(--fd); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; color: var(--txt); opacity: .72; transition: opacity .3s; }
     .sp-item:hover { opacity: 1; }
-    .sp-red { color: var(--red); opacity: .85; }
 
     /* ========= FOOTER ========= */
     .footer { position: relative; padding: 4rem 0 2.5rem; overflow: hidden; }
@@ -664,13 +691,14 @@
     <div class="container navbar-inner">
 
       <a href="#" class="brand" aria-label="Erich-Fill-Triathlon Taunusstein – Startseite">
-        <svg class="brand-mark" viewBox="0 0 120 38" fill="none" aria-hidden="true">
-          <path class="m-top" d="M4,24 C26,6 44,4 64,15 C84,26 100,10 116,14" stroke-width="4" stroke-linecap="round"/>
-          <path class="m-bot" d="M4,33 C28,20 46,24 66,28 C88,32 102,23 116,27" stroke-width="4" stroke-linecap="round"/>
+        <svg class="brand-mark" viewBox="0 0 120 32" fill="none" aria-hidden="true">
+          <path class="m-slate" d="M3,27 C14,9 25,5 37,12 C47,18 55,25 66,27" stroke-width="3.6" stroke-linecap="round"/>
+          <path class="m-volt"  d="M52,27 C64,23 71,5 87,4 C101,3 110,15 117,21" stroke-width="3.6" stroke-linecap="round"/>
         </svg>
         <span class="brand-text">
-          <span class="brand-1">Erich-Fill-Triathlon</span>
-          <span class="brand-2">Taunusstein</span>
+          <span class="brand-1">Erich<span class="brand-hy">-</span>Fill</span>
+          <span class="brand-2">Triathlon</span>
+          <span class="brand-3">Taunusstein</span>
         </span>
       </a>
 
@@ -727,13 +755,13 @@
           39. Auflage · Sonntag, 16. Mai 2027 · Taunusstein
         </p>
 
-        <svg class="hero-mark" viewBox="0 0 220 44" fill="none" aria-hidden="true">
-          <path class="m-top" d="M6,26 C46,4 82,2 118,16 C154,30 186,8 214,14" stroke-width="5" stroke-linecap="round"/>
-          <path class="m-bot" d="M6,38 C50,21 86,26 122,31 C160,36 188,25 214,29" stroke-width="5" stroke-linecap="round"/>
+        <svg class="hero-mark" viewBox="0 0 220 56" fill="none" aria-hidden="true">
+          <path class="m-slate" d="M6,48 C26,14 46,8 68,20 C86,30 100,44 121,47" stroke-width="5.5" stroke-linecap="round"/>
+          <path class="m-volt"  d="M96,47 C118,40 130,8 159,6 C185,4 202,26 214,36" stroke-width="5.5" stroke-linecap="round"/>
         </svg>
 
         <h1 class="hero-title" id="heroH1">
-          <span class="t1">Erich-Fill</span>
+          <span class="t1">Erich<span class="hero-hy">-</span>Fill</span>
           <span class="t2">Triathlon</span>
           <span class="t3">Taunusstein</span>
         </h1>
@@ -841,7 +869,7 @@
           <div class="news-body">
             <div class="news-meta">
               <span class="news-date">Ab sofort</span>
-              <span class="badge badge-red">Wichtig</span>
+              <span class="badge badge-orange">Wichtig</span>
             </div>
             <h3 class="news-title" id="n2">Anmeldung 2027 geöffnet</h3>
             <p class="news-text">Startplätze für Olympische Distanz und Sprint sind freigegeben. Anmeldung über den Bär-Service — Plätze sind begrenzt.</p>
@@ -1089,7 +1117,7 @@
         <div class="ausschr-cta reveal d2">
           <div>
             <p class="pretitle" style="margin-bottom:.75rem">Alle Infos auf einen Blick</p>
-            <h2 class="ausschr-title" id="ausH2">Ausschreibung<br><span style="color:var(--red)">2027</span></h2>
+            <h2 class="ausschr-title" id="ausH2">Ausschreibung<br><span style="color:var(--orange-text)">2027</span></h2>
           </div>
           <p class="ausschr-sub">
             Die vollständige Ausschreibung enthält alle offiziellen Regeln, Streckenbeschreibungen, Zeitpläne und Startgeldinformationen als PDF zum Download.
@@ -1128,7 +1156,7 @@
       <p class="sp-label">Starke Partner des Erich-Fill-Triathlons</p>
       <div class="sp-row">
         <span class="sp-item">Naspa Sparkasse</span>
-        <span class="sp-item sp-red">sebamed<sup style="font-size:.6em">®</sup></span>
+        <span class="sp-item">sebamed<sup style="font-size:.6em">®</sup></span>
         <span class="sp-item">United Teams Rhein-Ruhr</span>
       </div>
     </div>
@@ -1156,13 +1184,14 @@
     <div class="footer-inner">
       <div>
         <div class="brand">
-          <svg class="brand-mark" viewBox="0 0 120 38" fill="none" aria-hidden="true">
-            <path class="m-top" d="M4,24 C26,6 44,4 64,15 C84,26 100,10 116,14" stroke-width="4" stroke-linecap="round"/>
-            <path class="m-bot" d="M4,33 C28,20 46,24 66,28 C88,32 102,23 116,27" stroke-width="4" stroke-linecap="round"/>
+          <svg class="brand-mark" viewBox="0 0 120 32" fill="none" aria-hidden="true">
+            <path class="m-slate" d="M3,27 C14,9 25,5 37,12 C47,18 55,25 66,27" stroke-width="3.6" stroke-linecap="round"/>
+            <path class="m-volt"  d="M52,27 C64,23 71,5 87,4 C101,3 110,15 117,21" stroke-width="3.6" stroke-linecap="round"/>
           </svg>
           <span class="brand-text">
-            <span class="brand-1">Erich-Fill-Triathlon</span>
-            <span class="brand-2">Taunusstein</span>
+            <span class="brand-1">Erich<span class="brand-hy">-</span>Fill</span>
+            <span class="brand-2">Triathlon</span>
+            <span class="brand-3">Taunusstein</span>
           </span>
         </div>
         <p class="footer-meta">
