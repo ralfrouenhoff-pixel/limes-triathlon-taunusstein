@@ -47,14 +47,8 @@
     }
     .back-link:hover { opacity: .75; }
     .back-link svg { flex-shrink: 0; }
-    .topbar-mark { width: 2rem; height: auto; flex-shrink: 0; overflow: visible; color: var(--g2); }
-    .topbar-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900; font-style: italic; font-size: 1.1rem;
-      letter-spacing: .01em; text-transform: uppercase;
-      color: var(--g2);
-    }
-    @media(max-width:600px){ .topbar { gap: .75rem; } .topbar-title { font-size: .95rem; } }
+    .topbar-logo { height: 2.3rem; width: auto; display: block; flex-shrink: 0; }
+    @media(max-width:600px){ .topbar { gap: .75rem; } .topbar-logo { height: 1.8rem; } }
     .topbar-count {
       margin-left: auto;
       font-size: .8rem; color: var(--g4);
@@ -182,11 +176,8 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
       Zurück
     </a>
-    <svg class="topbar-mark" viewBox="0 0 120 32" fill="none" aria-hidden="true">
-      <path d="M3,27 C14,9 25,5 37,12 C47,18 55,25 66,27" stroke="#406488" stroke-width="3.6" stroke-linecap="round"/>
-      <path d="M52,27 C64,23 71,5 87,4 C101,3 110,15 117,21" stroke="var(--volt)" stroke-width="3.6" stroke-linecap="round"/>
-    </svg>
-    <span class="topbar-title">Erich<span style="color:var(--orange)">-</span>Fill-Triathlon</span>
+    <img src="images/eft-logo-sm.png" alt="Erich-Fill-Triathlon Taunusstein"
+         class="topbar-logo" width="440" height="169">
     <span class="topbar-count">113 Fotos</span>
   </nav>
 

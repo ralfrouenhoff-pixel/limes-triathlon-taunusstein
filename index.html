@@ -48,7 +48,6 @@
       --volt-deep:  #B8E600;
       --orange:     #FF4600;   /* UTRR-Primärfarbe */
       --orange-dark:#CC3800;   /* abgedunkelt für Kleintext auf hellem Grund */
-      --slate:      #406488;   /* zweite Hügellinie im Logo */
 
       /* Deep Navy / Anthrazit */
       --navy:       #10141A;
@@ -138,7 +137,7 @@
        Zentrales Gestaltungselement. Drei Einsatzformen:
        .hill-divider  — Übergang zwischen Sections
        .hill-canvas   — großflächig als Hintergrundgrafik
-       .brand-mark    — im Logo
+       .brand-logo    — im Logo
        ===================================== */
     /* Sitzt bündig am unteren Rand der Section — unabhängig vom Padding.
        Die Füllfarbe entspricht der FOLGENDEN Section. */
@@ -162,41 +161,13 @@
     .hill-canvas path { fill: none; stroke-linecap: round; }
 
     /* ========= LOGO =========
-       Aufbau wie im Original: zwei sich kreuzende Taunus-Hügel
-       (stahlblau + volt), darunter ERICH-FILL mit rotem Bindestrich,
-       TRIATHLON in Volt, TAUNUSSTEIN zwischen roten Balken.
+       Original-Logo als freigestelltes PNG (transparent, für dunkle
+       Flächen). Kleine Variante für Nav/Footer, große für den Hero.
        ========================= */
-    .brand { display: inline-flex; align-items: center; gap: .7rem; }
-    .brand-mark { width: 2.9rem; height: auto; flex-shrink: 0; overflow: visible; }
-    .brand-mark .m-slate { stroke: var(--slate); }
-    .brand-mark .m-volt  { stroke: var(--volt); }
-    .brand-text { display: block; line-height: 1; }
-    .brand-1 {
-      display: block; font-family: var(--fd); font-weight: 900; font-style: italic;
-      font-size: 1.1rem; text-transform: uppercase; letter-spacing: .005em;
-    }
-    .brand-hy { color: var(--orange); }
-    .brand-2 {
-      display: block; font-family: var(--fd); font-weight: 900; font-style: italic;
-      font-size: .82rem; text-transform: uppercase; letter-spacing: .13em;
-      color: var(--volt); margin-top: .12rem;
-    }
-    .brand-3 {
-      display: flex; align-items: center; gap: .3rem;
-      font-family: var(--fu); font-weight: 700;
-      font-size: .46rem; text-transform: uppercase; letter-spacing: .26em;
-      color: var(--mute); margin-top: .26rem;
-    }
-    .brand-3::before, .brand-3::after {
-      content: ''; flex: 1 1 auto; min-width: .5rem; max-width: 1.1rem;
-      height: 2px; background: var(--orange); border-radius: 1px;
-    }
-    @media(max-width:420px){
-      .brand-mark { width: 2.2rem; }
-      .brand-1 { font-size: .9rem; }
-      .brand-2 { font-size: .68rem; letter-spacing: .1em; }
-      .brand-3 { font-size: .42rem; letter-spacing: .2em; }
-    }
+    .brand { display: inline-flex; align-items: center; }
+    .brand-logo { height: 2.9rem; width: auto; display: block; }
+    @media(max-width:520px){ .brand-logo { height: 2.3rem; } }
+    @media(max-width:380px){ .brand-logo { height: 2rem; } }
 
     /* ========= TYPO-HELFER ========= */
     .pretitle {
@@ -310,13 +281,26 @@
       position: absolute; inset: 0; z-index: 0;
       width: 100%; height: 100%;
       object-fit: cover; object-position: center 28%;
-      opacity: .30; filter: saturate(.55) contrast(1.05);
+      opacity: .78; filter: saturate(.9) contrast(1.06);
     }
+    /* Asymmetrisch: links stark abgedunkelt für die Textlesbarkeit,
+       rechts nur leicht, damit der Athlet erkennbar bleibt. */
     .hero-veil {
       position: absolute; inset: 0; z-index: 1;
       background:
-        linear-gradient(105deg, rgba(16,20,26,.96) 0%, rgba(16,20,26,.78) 46%, rgba(16,20,26,.92) 100%),
-        linear-gradient(to bottom, rgba(16,20,26,.85) 0%, transparent 28%, transparent 62%, var(--navy) 100%);
+        linear-gradient(100deg, rgba(16,20,26,.94) 0%, rgba(16,20,26,.88) 32%,
+                        rgba(16,20,26,.55) 60%, rgba(16,20,26,.32) 100%),
+        linear-gradient(to bottom, rgba(16,20,26,.78) 0%, transparent 26%,
+                        transparent 60%, var(--navy) 100%);
+    }
+    /* Auf schmalen Viewports liegt der Text über dem ganzen Bild */
+    @media(max-width:860px){
+      .hero-photo { opacity: .58; }
+      .hero-veil {
+        background:
+          linear-gradient(180deg, rgba(16,20,26,.88) 0%, rgba(16,20,26,.72) 38%,
+                          rgba(16,20,26,.82) 72%, var(--navy) 100%);
+      }
     }
     /* Große, dezente Hügellinie im Hero */
     .hero-hills {
@@ -342,34 +326,11 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
     /* Hügellinie direkt über dem Titel — das Logo, monumentalisiert */
-    .hero-mark { display: block; width: clamp(11rem, 32vw, 21rem); height: auto; margin-bottom: 1rem; overflow: visible; animation: riseIn .7s ease .12s both; }
-    .hero-mark .m-slate { stroke: var(--slate); }
-    .hero-mark .m-volt  { stroke: var(--volt); }
-
-    .hero-title {
-      font-family: var(--fd); font-weight: 900; font-style: italic;
-      text-transform: uppercase; letter-spacing: -.025em; line-height: .92;
-      margin-bottom: 1.6rem; animation: riseIn .7s ease .2s both;
-    }
-    .hero-title .t1,
-    .hero-title .t2 { display: block; font-size: clamp(3rem, 10.5vw, 8rem); }
-    .hero-title .t1 { color: var(--off); }
-    .hero-title .t2 { color: var(--volt); }
-    .hero-hy { color: var(--orange); }
-    .hero-title .t3 {
-      display: flex; align-items: center; gap: .9rem;
-      font-style: normal; font-weight: 700;
-      font-size: clamp(.85rem, 2.4vw, 1.6rem);
-      letter-spacing: .34em; color: var(--off);
-      margin-top: .85rem; max-width: 24ch;
-    }
-    .hero-title .t3::before, .hero-title .t3::after {
-      content: ''; flex: 1 1 auto; min-width: 1.5rem;
-      height: 4px; background: var(--orange); border-radius: 2px;
-    }
+    .hero-title { margin-bottom: 1.9rem; animation: riseIn .7s ease .18s both; }
+    .hero-logo { width: min(100%, 41rem); height: auto; display: block; }
 
     .hero-sub {
-      font-size: clamp(1rem, 2.2vw, 1.15rem); color: var(--t-dark-mute);
+      font-size: clamp(1rem, 2.2vw, 1.15rem); color: #C7CFD9;
       max-width: 520px; line-height: 1.75; margin-bottom: 2.75rem;
       animation: riseIn .7s ease .34s both;
     }
@@ -380,8 +341,9 @@
     .cd-unit {
       display: flex; flex-direction: column; align-items: center;
       min-width: 5rem; padding: .95rem 1.2rem;
-      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.11);
-      border-radius: var(--r);
+      /* Dunkles Scrim statt hellem Film — trägt auch über hellen Bildstellen */
+      background: rgba(8,11,15,.62); border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--r); backdrop-filter: blur(3px);
     }
     .cd-num {
       font-family: var(--fd); font-size: clamp(1.9rem, 5vw, 2.85rem);
@@ -612,7 +574,6 @@
     .footer-hills path { fill: none; stroke: var(--volt); stroke-width: 2; opacity: .12; }
     .footer-inner { position: relative; z-index: 1; display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
     @media(min-width:820px){ .footer-inner { grid-template-columns: 1.2fr 1fr 1fr; } }
-    .footer .brand-2 { color: var(--t-dark-mute); }
     .footer-meta { margin-top: 1.2rem; font-size: .82rem; color: var(--t-dark-mute); line-height: 1.8; }
     .footer-meta .date { color: var(--volt); font-weight: 700; }
     .footer-h {
@@ -691,15 +652,8 @@
     <div class="container navbar-inner">
 
       <a href="#" class="brand" aria-label="Erich-Fill-Triathlon Taunusstein – Startseite">
-        <svg class="brand-mark" viewBox="0 0 120 32" fill="none" aria-hidden="true">
-          <path class="m-slate" d="M3,27 C14,9 25,5 37,12 C47,18 55,25 66,27" stroke-width="3.6" stroke-linecap="round"/>
-          <path class="m-volt"  d="M52,27 C64,23 71,5 87,4 C101,3 110,15 117,21" stroke-width="3.6" stroke-linecap="round"/>
-        </svg>
-        <span class="brand-text">
-          <span class="brand-1">Erich<span class="brand-hy">-</span>Fill</span>
-          <span class="brand-2">Triathlon</span>
-          <span class="brand-3">Taunusstein</span>
-        </span>
+        <img src="images/eft-logo-sm.png" alt="Erich-Fill-Triathlon Taunusstein"
+             class="brand-logo" width="440" height="169" loading="eager">
       </a>
 
       <ul class="nav-links" role="list">
@@ -755,15 +709,9 @@
           39. Auflage · Sonntag, 16. Mai 2027 · Taunusstein
         </p>
 
-        <svg class="hero-mark" viewBox="0 0 220 56" fill="none" aria-hidden="true">
-          <path class="m-slate" d="M6,48 C26,14 46,8 68,20 C86,30 100,44 121,47" stroke-width="5.5" stroke-linecap="round"/>
-          <path class="m-volt"  d="M96,47 C118,40 130,8 159,6 C185,4 202,26 214,36" stroke-width="5.5" stroke-linecap="round"/>
-        </svg>
-
         <h1 class="hero-title" id="heroH1">
-          <span class="t1">Erich<span class="hero-hy">-</span>Fill</span>
-          <span class="t2">Triathlon</span>
-          <span class="t3">Taunusstein</span>
+          <img src="images/eft-logo.png" alt="Erich-Fill-Triathlon Taunusstein"
+               class="hero-logo" width="1400" height="538" fetchpriority="high">
         </h1>
 
         <p class="hero-sub">
@@ -1184,15 +1132,8 @@
     <div class="footer-inner">
       <div>
         <div class="brand">
-          <svg class="brand-mark" viewBox="0 0 120 32" fill="none" aria-hidden="true">
-            <path class="m-slate" d="M3,27 C14,9 25,5 37,12 C47,18 55,25 66,27" stroke-width="3.6" stroke-linecap="round"/>
-            <path class="m-volt"  d="M52,27 C64,23 71,5 87,4 C101,3 110,15 117,21" stroke-width="3.6" stroke-linecap="round"/>
-          </svg>
-          <span class="brand-text">
-            <span class="brand-1">Erich<span class="brand-hy">-</span>Fill</span>
-            <span class="brand-2">Triathlon</span>
-            <span class="brand-3">Taunusstein</span>
-          </span>
+          <img src="images/eft-logo-sm.png" alt="Erich-Fill-Triathlon Taunusstein"
+               class="brand-logo" width="440" height="169" loading="lazy">
         </div>
         <p class="footer-meta">
           <span class="date">Sonntag, 16. Mai 2027</span><br>
