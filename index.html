@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Limes Triathlon Taunusstein 2026 | Der Klassiker im Taunus</title>
-  <meta name="description" content="Offizielle Website des Limes Triathlons Taunusstein 2026 — ehemals Erich-Fill-Triathlon. 700 Höhenmeter im Taunus. Anmeldung, Strecken, Ausschreibung.">
-  <meta name="keywords" content="Limes Triathlon, Triathlon Taunusstein, Triathlon Hessen, United Teams Rhein-Ruhr, Triathlon 2026">
+  <title>Erich-Fill-Triathlon Taunusstein | 16. Mai 2027</title>
+  <meta name="description" content="Offizielle Website des Erich-Fill-Triathlons Taunusstein. 39. Auflage am 16. Mai 2027 — 700 Höhenmeter im Taunus. Anmeldung, Strecken, Ausschreibung.">
+  <meta name="keywords" content="Erich-Fill-Triathlon, Triathlon Taunusstein, Triathlon Hessen, Triathlon 2027, United Teams Rhein-Ruhr">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#10141A">
   <link rel="canonical" href="https://erich-fill-triathlon.de/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://erich-fill-triathlon.de/">
-  <meta property="og:title" content="Limes Triathlon Taunusstein 2026 | Jetzt anmelden">
-  <meta property="og:description" content="700 Höhenmeter im Taunus. Stell dich der Herausforderung. Alle Infos & Anmeldung.">
+  <meta property="og:title" content="Erich-Fill-Triathlon Taunusstein | 16. Mai 2027">
+  <meta property="og:description" content="Der Klassiker im Taunus. 700 Höhenmeter, drei Disziplinen, ein Ziel. Alle Infos & Anmeldung.">
   <meta property="og:locale" content="de_DE">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -19,9 +20,9 @@
   {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
-    "name": "Limes Triathlon Taunusstein 2026",
-    "startDate": "2026-06-13T09:00:00+02:00",
-    "endDate": "2026-06-13T18:00:00+02:00",
+    "name": "Erich-Fill-Triathlon Taunusstein 2027",
+    "startDate": "2027-05-16T09:00:00+02:00",
+    "endDate": "2027-05-16T18:00:00+02:00",
     "eventStatus": "https://schema.org/EventScheduled",
     "sport": "Triathlon",
     "location": {
@@ -35,538 +36,491 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
   <style>
-    /* ========= TOKENS ========= */
+    /* =========================================================
+       DESIGN TOKENS — UTRR Markenfarben
+       ========================================================= */
     :root {
-      --bg:       #050d1a;
-      --bg2:      #081526;
-      --bg3:      #0d1e35;
-      --cyan:     #06b6d4;
-      --cyan-10:  rgba(6,182,212,.1);
-      --cyan-20:  rgba(6,182,212,.2);
-      --lime:     #6B8E23;
-      --lime-8:   rgba(107,142,35,.08);
-      --lime-20:  rgba(107,142,35,.2);
-      --white:    #f0f6ff;
-      --g3:       #cbd5e1;
-      --g4:       #94a3b8;
-      --g5:       #64748b;
-      --g6:       #334155;
+      /* Markenfarben — nicht verändern */
+      --volt:       #CCFF00;
+      --volt-deep:  #B8E600;
+      --red:        #E30613;
+
+      /* Deep Navy / Anthrazit */
+      --navy:       #10141A;
+      --navy-deep:  #080B0F;
+      --navy-soft:  #1A202A;
+
+      /* Neutral hell */
+      --off:        #F3F5F2;
+      --pure:       #FFFFFF;
+
+      /* Textfarben je Untergrund */
+      --t-dark:       #F3F5F2;
+      --t-dark-mute:  #9BA5B4;
+      --t-light:      #10141A;
+      --t-light-mute: #5B6673;
+
+      /* Kontextvariablen — werden pro Section überschrieben */
+      --bg:      var(--navy);
+      --surface: var(--navy-soft);
+      --txt:     var(--t-dark);
+      --mute:    var(--t-dark-mute);
+      --line:    rgba(255,255,255,.10);
+      --line-hi: rgba(255,255,255,.20);
+
+      /* Typografie */
       --fd: 'Barlow Condensed', sans-serif;
       --fu: 'Barlow', sans-serif;
       --fb: 'DM Sans', sans-serif;
-      --r: .875rem;
+
+      --r:    .75rem;
       --pill: 9999px;
+    }
+
+    /* Sektions-Kontexte */
+    .ctx-dark {
+      --bg: var(--navy); --surface: var(--navy-soft);
+      --txt: var(--t-dark); --mute: var(--t-dark-mute);
+      --line: rgba(255,255,255,.10); --line-hi: rgba(255,255,255,.22);
+      background: var(--bg); color: var(--txt);
+    }
+    .ctx-deep {
+      --bg: var(--navy-deep); --surface: var(--navy-soft);
+      --txt: var(--t-dark); --mute: var(--t-dark-mute);
+      --line: rgba(255,255,255,.08); --line-hi: rgba(255,255,255,.18);
+      background: var(--bg); color: var(--txt);
+    }
+    .ctx-light {
+      --bg: var(--off); --surface: var(--pure);
+      --txt: var(--t-light); --mute: var(--t-light-mute);
+      --line: rgba(16,20,26,.12); --line-hi: rgba(16,20,26,.28);
+      background: var(--bg); color: var(--txt);
+    }
+    .ctx-white {
+      --bg: var(--pure); --surface: var(--off);
+      --txt: var(--t-light); --mute: var(--t-light-mute);
+      --line: rgba(16,20,26,.10); --line-hi: rgba(16,20,26,.26);
+      background: var(--bg); color: var(--txt);
     }
 
     /* ========= RESET ========= */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--fb); background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    img  { max-width: 100%; height: auto; display: block; }
-    a    { color: inherit; text-decoration: none; }
-    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+    body {
+      font-family: var(--fb); background: var(--navy); color: var(--t-dark);
+      line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a   { color: inherit; text-decoration: none; }
+    :focus-visible {
+      outline: 3px solid var(--volt); outline-offset: 2px;
+      box-shadow: 0 0 0 5px rgba(16,20,26,.55); border-radius: 4px;
+    }
 
     /* ========= LAYOUT ========= */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-    .section    { padding: 6rem 0; }
-    .section-alt { background: var(--bg2); }
+    .section   { padding: 6rem 0; position: relative; }
+    @media(max-width:640px){ .section { padding: 4rem 0; } }
+    /* Platz schaffen für eine absolut positionierte Hügellinie am Sectionsende */
+    .has-divider { padding-bottom: calc(4rem + clamp(44px, 5.5vw, 88px)); }
+    @media(max-width:640px){ .has-divider { padding-bottom: calc(2rem + clamp(44px, 5.5vw, 88px)); } }
 
-    /* ========= TYPE HELPERS ========= */
+    /* ========= TAUNUS-HÜGELLINIE =========
+       Zentrales Gestaltungselement. Drei Einsatzformen:
+       .hill-divider  — Übergang zwischen Sections
+       .hill-canvas   — großflächig als Hintergrundgrafik
+       .brand-mark    — im Logo
+       ===================================== */
+    /* Sitzt bündig am unteren Rand der Section — unabhängig vom Padding.
+       Die Füllfarbe entspricht der FOLGENDEN Section. */
+    .hill-divider {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      line-height: 0; z-index: 2; pointer-events: none;
+    }
+    .hill-divider svg { display: block; width: 100%; height: clamp(44px, 5.5vw, 88px); }
+    .hill-divider .hill-line { fill: none; stroke: var(--volt); stroke-width: 2.5; opacity: .45; }
+    .to-light .hill-fill { fill: var(--off); }
+    .to-white .hill-fill { fill: var(--pure); }
+    .to-dark  .hill-fill { fill: var(--navy); }
+    .to-deep  .hill-fill { fill: var(--navy-deep); }
+
+    .hill-canvas {
+      position: absolute; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hill-canvas svg { width: 100%; height: auto; min-height: 100%; }
+    .hill-canvas path { fill: none; stroke-linecap: round; }
+
+    /* ========= LOGO ========= */
+    .brand { display: inline-flex; align-items: center; gap: .7rem; }
+    .brand-mark { width: 2.6rem; height: auto; flex-shrink: 0; overflow: visible; }
+    .brand-mark .m-top { stroke: var(--volt); }
+    .brand-mark .m-bot { stroke: currentColor; opacity: .42; }
+    .brand-text { display: block; line-height: 1; }
+    .brand-1 {
+      display: block; font-family: var(--fd); font-weight: 900; font-style: italic;
+      font-size: 1.15rem; text-transform: uppercase; letter-spacing: .005em;
+    }
+    .brand-2 {
+      display: block; font-family: var(--fu); font-weight: 700;
+      font-size: .52rem; text-transform: uppercase; letter-spacing: .28em;
+      color: var(--mute); margin-top: .3rem;
+    }
+    @media(max-width:420px){
+      .brand-mark { width: 2rem; }
+      .brand-1 { font-size: .95rem; }
+      .brand-2 { font-size: .46rem; letter-spacing: .22em; }
+    }
+
+    /* ========= TYPO-HELFER ========= */
     .pretitle {
-      display: inline-flex; align-items: center; gap: .5rem;
+      display: inline-flex; align-items: center; gap: .6rem;
       font-family: var(--fu); font-size: .6875rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .15em; color: var(--cyan);
+      text-transform: uppercase; letter-spacing: .18em; color: var(--txt);
     }
-    .pretitle::before { content: ''; display: block; width: 1.25rem; height: 2px; background: var(--cyan); border-radius: 1px; }
+    .pretitle::before {
+      content: ''; display: block; width: 1.5rem; height: 3px;
+      background: var(--volt); border-radius: 2px;
+    }
     .sec-title {
-      font-family: var(--fd); font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1.05; margin-top: .5rem;
+      font-family: var(--fd); font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+      font-weight: 900; font-style: italic; text-transform: uppercase;
+      letter-spacing: -.015em; line-height: 1.02; margin-top: .6rem;
     }
-    .sec-head { max-width: 700px; margin: 0 auto 3.5rem; text-align: center; }
-    .grad { color: var(--lime); }
+    .sec-head { max-width: 720px; margin: 0 auto 3.5rem; text-align: center; }
+    .sec-head .pretitle::before { display: none; }
+    .sec-sub { color: var(--mute); margin-top: 1rem; font-size: 1rem; line-height: 1.75; }
+    .volt { color: var(--volt); }
 
     /* ========= BUTTONS ========= */
     .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      font-family: var(--fu); font-size: .875rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .07em;
-      padding: .75rem 1.75rem; border-radius: var(--pill);
-      border: none; cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+      font-family: var(--fu); font-size: .875rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .09em;
+      padding: .85rem 1.9rem; border-radius: var(--pill);
+      border: 2px solid transparent; cursor: pointer;
+      transition: transform .2s ease, background .2s ease, color .2s ease,
+                  border-color .2s ease, box-shadow .2s ease;
     }
     .btn:active { transform: scale(.97); }
-    .btn-lime  { background: var(--lime); color: #fff; }
-    .btn-lime:hover  { box-shadow: 0 0 28px rgba(107,142,35,.45); transform: translateY(-2px); }
-    .btn-ghost { background: rgba(255,255,255,.06); color: var(--white); border: 1px solid rgba(255,255,255,.14); }
-    .btn-ghost:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.28); transform: translateY(-2px); }
-    .btn-lg  { padding: 1rem 2.25rem; font-size: .9375rem; }
-    .btn-xl  { padding: 1.125rem 2.75rem; font-size: 1rem; }
+
+    /* Primär — ANMELDUNG */
+    .btn-primary { background: var(--volt); color: var(--navy); border-color: var(--volt); }
+    .btn-primary:hover {
+      background: var(--volt-deep); border-color: var(--volt-deep);
+      transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.28);
+    }
+    /* Sekundär — passt sich dem Untergrund an */
+    .btn-outline { background: transparent; color: var(--txt); border-color: var(--line-hi); }
+    .btn-outline:hover { border-color: var(--txt); transform: translateY(-2px); }
+    /* Dunkel — auf hellen Flächen */
+    .btn-dark { background: var(--navy); color: var(--off); border-color: var(--navy); }
+    .btn-dark:hover { background: var(--navy-soft); border-color: var(--navy-soft); transform: translateY(-2px); }
+    /* Rot — sparsam, nur für einzelne Akzente */
+    .btn-red { background: var(--red); color: #fff; border-color: var(--red); }
+    .btn-red:hover { background: #c40511; border-color: #c40511; transform: translateY(-2px); }
+
+    .btn-lg { padding: 1rem 2.3rem; font-size: .9375rem; }
+    .btn-xl { padding: 1.15rem 2.8rem; font-size: 1rem; }
 
     /* ========= BADGE ========= */
     .badge {
       display: inline-flex; align-items: center;
-      padding: .2rem .7rem; border-radius: var(--pill);
-      font-family: var(--fu); font-size: .625rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .1em;
+      padding: .25rem .75rem; border-radius: var(--pill);
+      font-family: var(--fu); font-size: .625rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .12em;
+      border: 1px solid var(--line-hi); color: var(--mute);
     }
-    .badge-info    { background: var(--cyan-10); color: #7dd3fc; border: 1px solid var(--cyan-20); }
-    .badge-news    { background: var(--lime-8);  color: var(--lime); border: 1px solid var(--lime-20); }
-    .badge-muted   { background: rgba(255,255,255,.06); color: var(--g3); border: 1px solid rgba(255,255,255,.1); }
-    .badge-rebrand { background: rgba(107,142,35,.18); color: #bdd94e; border: 1px solid rgba(107,142,35,.38); }
+    .badge-volt { background: var(--volt); border-color: var(--volt); color: var(--navy); }
+    .badge-red  { background: transparent; border-color: var(--red); color: var(--red); }
 
     /* ========= NAV ========= */
     .navbar {
       position: sticky; top: 0; z-index: 200;
-      background: rgba(5,13,26,.88);
-      backdrop-filter: blur(18px) saturate(180%);
-      -webkit-backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid rgba(6,182,212,.08);
+      background: rgba(8,11,15,.90);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      --mute: var(--t-dark-mute);
+      color: var(--t-dark);
     }
-    .navbar-inner { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; }
-    .logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
-    .logo-img {
-      height: 48px; width: auto; display: block;
-      background: rgba(255,255,255,.96);
-      border-radius: 6px;
-      padding: 5px 11px;
-      flex-shrink: 0;
+    .navbar-inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; gap: 1rem; }
+    .nav-links { display: none; list-style: none; gap: 1.6rem; align-items: center; }
+    @media(min-width:1040px){ .nav-links { display: flex; } }
+    .nav-links a {
+      font-family: var(--fu); font-size: .8125rem; font-weight: 700;
+      color: var(--t-dark-mute); text-transform: uppercase; letter-spacing: .08em;
+      padding: .4rem 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
     }
-    .logo-name { display: block; font-family: var(--fd); font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--white); }
-    .logo-sub  { display: block; font-size: .58rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--g4); margin-top: .15rem; }
-    .nav-links { display: none; list-style: none; gap: 1.75rem; align-items: center; }
-    @media(min-width:1024px){ .nav-links { display: flex; } }
-    .nav-links a { font-family: var(--fu); font-size: .8125rem; font-weight: 600; color: var(--g3); text-transform: uppercase; letter-spacing: .07em; transition: color .2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--cyan); }
+    .nav-links a:hover, .nav-links a.active { color: var(--volt); border-bottom-color: var(--volt); }
     .nav-end { display: flex; align-items: center; gap: .75rem; }
     #navCta { display: none; }
-    .hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .5rem; color: var(--white); }
-    @media(min-width:1024px){ .hamburger { display: none; } }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .5rem; color: var(--t-dark); }
+    @media(min-width:1040px){ .hamburger { display: none; } }
     .hamburger span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 1px; transition: transform .3s, opacity .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: none; flex-direction: column; background: rgba(5,13,26,.98); border-top: 1px solid rgba(255,255,255,.05); }
+    .mobile-menu { display: none; flex-direction: column; background: rgba(8,11,15,.99); border-top: 1px solid rgba(255,255,255,.06); }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { padding: 1rem 1.5rem; font-family: var(--fu); font-size: .9375rem; font-weight: 600; color: var(--g3); text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid rgba(255,255,255,.04); transition: color .2s, background .2s; }
-    .mobile-menu a:hover { color: var(--cyan); background: rgba(6,182,212,.05); }
-    .mobile-menu .btn { margin: 1rem 1.5rem; width: calc(100% - 3rem); justify-content: center; }
+    .mobile-menu a {
+      padding: 1rem 1.5rem; font-family: var(--fu); font-size: .9375rem; font-weight: 700;
+      color: var(--t-dark-mute); text-transform: uppercase; letter-spacing: .07em;
+      border-bottom: 1px solid rgba(255,255,255,.05); transition: color .2s, background .2s;
+    }
+    .mobile-menu a:hover { color: var(--volt); background: rgba(204,255,0,.06); }
+    .mobile-menu .btn { margin: 1rem 1.5rem; width: calc(100% - 3rem); }
 
     /* ========= HERO ========= */
     .hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center;
-      overflow: hidden; padding: 8rem 1.5rem 7rem;
+      overflow: hidden; padding: 7rem 0 6rem;
+      background: var(--navy);
     }
-    .hero-bg {
+    /* .container ist hier Flex-Item — ohne width:100% schrumpft es auf Inhaltsbreite */
+    .hero > .container { width: 100%; }
+    .hero-photo {
       position: absolute; inset: 0; z-index: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 28%;
+      opacity: .30; filter: saturate(.55) contrast(1.05);
+    }
+    .hero-veil {
+      position: absolute; inset: 0; z-index: 1;
       background:
-        radial-gradient(ellipse 70% 55% at 12% 50%, rgba(6,182,212,.13) 0%, transparent 58%),
-        radial-gradient(ellipse 55% 45% at 88% 75%, rgba(107,142,35,.07) 0%, transparent 55%),
-        var(--bg);
+        linear-gradient(105deg, rgba(16,20,26,.96) 0%, rgba(16,20,26,.78) 46%, rgba(16,20,26,.92) 100%),
+        linear-gradient(to bottom, rgba(16,20,26,.85) 0%, transparent 28%, transparent 62%, var(--navy) 100%);
     }
-    .hero-lines {
-      position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background: repeating-linear-gradient(
-        -55deg,
-        transparent, transparent 62px,
-        rgba(6,182,212,.022) 62px, rgba(6,182,212,.022) 63px
-      );
+    /* Große, dezente Hügellinie im Hero */
+    .hero-hills {
+      position: absolute; left: 0; right: 0; bottom: 8%; z-index: 1;
+      pointer-events: none;
     }
-    .hero-orb {
-      position: absolute; border-radius: 50%;
-      filter: blur(90px); pointer-events: none; z-index: 0;
-    }
-    .orb-1 { width: 580px; height: 580px; top: -140px; left: -120px; background: rgba(6,182,212,.09); animation: float1 12s ease-in-out infinite; }
-    .orb-2 { width: 460px; height: 460px; bottom: -80px; right: -80px; background: rgba(163,230,53,.06); animation: float2 16s ease-in-out infinite; }
-    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(24px,-18px)} }
-    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-18px,24px)} }
+    .hero-hills svg { width: 100%; height: auto; display: block; }
+    .hero-hills .h1 { fill: none; stroke: var(--volt); stroke-width: 2; opacity: .20; }
+    .hero-hills .h2 { fill: none; stroke: #fff;        stroke-width: 2; opacity: .09; }
+    .hero-hills .h3 { fill: none; stroke: #fff;        stroke-width: 2; opacity: .05; }
 
-    .hero-watermark {
-      position: absolute; z-index: 0;
-      right: -3rem; top: 50%; transform: translateY(-50%);
-      font-family: var(--fd); font-size: clamp(14rem, 28vw, 26rem);
-      font-weight: 900; font-style: italic; line-height: 1;
-      color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.035);
-      user-select: none; pointer-events: none; white-space: nowrap;
-    }
-
-    .hero-content { position: relative; z-index: 1; max-width: 880px; width: 100%; }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; width: 100%; }
 
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: .625rem;
-      padding: .375rem 1rem; margin-bottom: 2rem; border-radius: var(--pill);
-      background: rgba(6,182,212,.08); border: 1px solid rgba(6,182,212,.22);
-      font-family: var(--fu); font-size: .6875rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .12em; color: #7dd3fc;
-      animation: riseIn .6s ease .1s both;
+      display: inline-flex; align-items: center; gap: .65rem;
+      padding: .45rem 1.1rem; margin-bottom: 2rem; border-radius: var(--pill);
+      background: rgba(204,255,0,.10); border: 1px solid rgba(204,255,0,.35);
+      font-family: var(--fu); font-size: .6875rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .14em; color: var(--volt);
+      animation: riseIn .6s ease .05s both;
     }
-    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: blink 2.4s ease-in-out infinite; }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--volt); animation: blink 2.4s ease-in-out infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
+    /* Hügellinie direkt über dem Titel — das Logo, monumentalisiert */
+    .hero-mark { display: block; width: clamp(9rem, 26vw, 17rem); height: auto; margin-bottom: 1.1rem; overflow: visible; animation: riseIn .7s ease .12s both; }
+    .hero-mark .m-top { stroke: var(--volt); }
+    .hero-mark .m-bot { stroke: #fff; opacity: .38; }
+
     .hero-title {
-      font-family: var(--fd); font-size: clamp(3.5rem, 11vw, 8.5rem);
-      font-weight: 900; font-style: italic; text-transform: uppercase;
-      letter-spacing: -.02em; line-height: .95; margin-bottom: 1.5rem;
-      animation: riseIn .7s ease .2s both;
+      font-family: var(--fd); font-weight: 900; font-style: italic;
+      text-transform: uppercase; letter-spacing: -.025em; line-height: .92;
+      margin-bottom: 1.6rem; animation: riseIn .7s ease .2s both;
     }
-    .hero-title span { display: block; }
-    .hero-title .place {
-      font-size: clamp(1.4rem, 3.5vw, 2.6rem);
-      font-style: normal; font-weight: 700;
-      letter-spacing: .2em; color: var(--g4);
-      margin-top: .4rem;
+    .hero-title .t1,
+    .hero-title .t2 { display: block; font-size: clamp(3rem, 10.5vw, 8rem); }
+    .hero-title .t1 { color: var(--off); }
+    .hero-title .t2 { color: var(--volt); }
+    .hero-title .t3 {
+      display: block; font-style: normal; font-weight: 700;
+      font-size: clamp(1rem, 2.9vw, 2rem);
+      letter-spacing: .34em; color: var(--t-dark-mute);
+      margin-top: .7rem;
     }
 
-    .hero-rule {
-      width: 4rem; height: 3px;
-      background: linear-gradient(90deg, var(--cyan), var(--lime));
-      border-radius: 2px; margin-bottom: 1.5rem;
-      animation: riseIn .7s ease .35s both;
-    }
-    .hero-formerly {
-      font-size: .75rem; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--g5);
-      margin-bottom: 1.5rem;
-      animation: riseIn .7s ease .42s both;
-    }
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.125rem); color: var(--g3);
-      max-width: 540px; line-height: 1.75; margin-bottom: 3rem;
-      animation: riseIn .7s ease .4s both;
+      font-size: clamp(1rem, 2.2vw, 1.15rem); color: var(--t-dark-mute);
+      max-width: 520px; line-height: 1.75; margin-bottom: 2.75rem;
+      animation: riseIn .7s ease .34s both;
     }
+    .hero-sub strong { color: var(--off); font-weight: 600; }
 
     /* Countdown */
-    .countdown { display: flex; gap: .875rem; flex-wrap: wrap; margin-bottom: 3rem; animation: riseIn .7s ease .5s both; }
+    .countdown { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 2.75rem; animation: riseIn .7s ease .45s both; }
     .cd-unit {
       display: flex; flex-direction: column; align-items: center;
-      min-width: 5rem; padding: 1rem 1.25rem;
-      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
-      border-radius: var(--r); backdrop-filter: blur(12px);
+      min-width: 5rem; padding: .95rem 1.2rem;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.11);
+      border-radius: var(--r);
     }
     .cd-num {
-      font-family: var(--fd); font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 900; line-height: 1; letter-spacing: -.02em;
+      font-family: var(--fd); font-size: clamp(1.9rem, 5vw, 2.85rem);
+      font-weight: 900; line-height: 1; letter-spacing: -.02em; color: var(--off);
     }
-    .cd-num.days  { color: var(--lime); }
-    .cd-num.hours { color: var(--cyan); }
-    .cd-num.mins  { color: var(--white); }
-    .cd-num.secs  { color: var(--g4); }
-    .cd-label { font-family: var(--fu); font-size: .55rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--g4); margin-top: .4rem; }
-
+    .cd-num.days { color: var(--volt); }
+    .cd-label { font-family: var(--fu); font-size: .55rem; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; color: var(--t-dark-mute); margin-top: .45rem; }
     @keyframes cdFlip { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
     .cd-num.flip { animation: cdFlip .22s ease forwards; }
 
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; animation: riseIn .7s ease .6s both; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: .9rem; animation: riseIn .7s ease .55s both; }
+    .hero .btn-outline { color: var(--off); border-color: rgba(255,255,255,.28); }
+    .hero .btn-outline:hover { border-color: var(--off); }
 
     .scroll-hint {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      z-index: 1; display: flex; flex-direction: column; align-items: center; gap: .5rem;
-      font-family: var(--fu); font-size: .6rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .15em; color: var(--g5);
+      position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      font-family: var(--fu); font-size: .6rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .16em; color: var(--t-dark-mute);
       animation: riseIn .7s ease .9s both;
     }
     .scroll-ring {
-      width: 1.75rem; height: 1.75rem; border: 1.5px solid var(--g6);
+      width: 1.75rem; height: 1.75rem; border: 1.5px solid rgba(255,255,255,.28);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
       animation: scrollBounce 2.2s ease-in-out infinite;
     }
     @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+    @keyframes riseIn { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @media(max-height:720px){ .scroll-hint { display: none; } }
 
-    @keyframes riseIn { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
-
-    /* ========= STATS BAR ========= */
-    .stats-bar {
-      background: var(--bg3);
-      border-top: 1px solid rgba(255,255,255,.05);
-      border-bottom: 1px solid rgba(255,255,255,.05);
-      padding: 2rem 0;
-    }
+    /* ========= STATS ========= */
+    .stats-bar { padding: 2.5rem 0; position: relative; z-index: 2; }
     .stats-row { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
     .stat { text-align: center; }
-    .stat-num-wrap { display: flex; align-items: baseline; justify-content: center; gap: .1rem; }
-    .stat-num { font-family: var(--fd); font-size: clamp(2.25rem, 5vw, 3.25rem); font-weight: 900; line-height: 1; color: var(--white); }
-    .stat-sfx { font-family: var(--fd); font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 900; color: var(--lime); line-height: 1; }
-    .stat-lbl { font-family: var(--fu); font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; color: var(--g4); margin-top: .3rem; }
-    .stats-div { width: 1px; height: 2.5rem; background: rgba(255,255,255,.07); }
+    .stat-num-wrap { display: flex; align-items: baseline; justify-content: center; gap: .08rem; }
+    .stat-num { font-family: var(--fd); font-size: clamp(2.1rem, 5vw, 3.1rem); font-weight: 900; line-height: 1; color: var(--txt); }
+    .stat-sfx { font-family: var(--fd); font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 900; color: var(--volt); line-height: 1; }
+    .stat-lbl { font-family: var(--fu); font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .17em; color: var(--mute); margin-top: .4rem; }
+    .stats-div { width: 1px; height: 2.5rem; background: var(--line); }
     @media(max-width:599px){ .stats-div { display: none; } }
-
-    /* ========= HERO STAMP ========= */
-    .hero-stamp {
-      position: absolute; top: 0.75rem; left: 2rem;
-      width: 160px;
-      filter: invert(1) hue-rotate(180deg);
-      mix-blend-mode: screen;
-    }
-    .hero-stamp img { width: 100%; height: auto; display: block; }
-    @media(max-width:900px) { .hero-stamp { width: 100px; top: 5rem; left: 1rem; } }
-    @media(max-width:480px) { .hero-stamp { display: none; } }
 
     /* ========= NEWS ========= */
     .news-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
-    @media(min-width:700px){ .news-grid { grid-template-columns: repeat(3,1fr); } }
-    @media(min-width:700px){ .news-card-featured { grid-column: 1 / -1; } }
-
+    @media(min-width:700px){
+      .news-grid { grid-template-columns: repeat(3,1fr); }
+      .news-card-featured { grid-column: 1 / -1; }
+    }
     .news-card {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+      background: var(--surface); border: 1px solid var(--line);
       border-radius: var(--r); overflow: hidden;
       transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
     }
-    .news-card:hover { transform: translateY(-5px); border-color: rgba(6,182,212,.25); box-shadow: 0 12px 36px rgba(0,0,0,.3); }
-    .news-bar { height: 3px; }
-    .bar-info  { background: linear-gradient(90deg, var(--cyan), transparent); }
-    .bar-news  { background: linear-gradient(90deg, var(--lime), transparent); }
-    .bar-muted { background: linear-gradient(90deg, var(--g5), transparent); }
-    .news-body { padding: 1.5rem; }
-    .news-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: .875rem; }
-    .news-date { font-family: var(--fu); font-size: .6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--g4); }
-    .news-title { font-family: var(--fu); font-size: 1.0625rem; font-weight: 700; line-height: 1.4; margin-bottom: .625rem; }
-    .news-text  { font-size: .875rem; color: var(--g4); line-height: 1.7; }
+    .news-card:hover { transform: translateY(-5px); border-color: var(--line-hi); box-shadow: 0 14px 32px rgba(16,20,26,.10); }
+    .news-bar { height: 4px; background: var(--line-hi); }
+    .bar-volt { background: var(--volt); }
+    .bar-red  { background: var(--red); }
+    .news-body { padding: 1.6rem; }
+    .news-meta { display: flex; justify-content: space-between; align-items: center; gap: .75rem; margin-bottom: .9rem; }
+    .news-date { font-family: var(--fu); font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; color: var(--mute); }
+    .news-title { font-family: var(--fu); font-size: 1.1rem; font-weight: 800; line-height: 1.35; margin-bottom: .6rem; }
+    .news-text  { font-size: .875rem; color: var(--mute); line-height: 1.75; }
+    .news-text strong { color: var(--txt); font-weight: 600; }
+    .news-card-featured .news-title { font-family: var(--fd); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: clamp(1.5rem,3.6vw,2.4rem); line-height: 1.05; letter-spacing: -.01em; }
+    .news-card-featured .news-body { padding: 2.1rem; }
+    .news-card-featured .news-text { max-width: 74ch; font-size: .95rem; }
 
-    /* ========= DISCIPLINES ========= */
-    .disc-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+    /* ========= DISZIPLINEN ========= */
+    .disc-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
     @media(min-width:700px) { .disc-grid { grid-template-columns: repeat(2,1fr); } }
     @media(min-width:1024px){ .disc-grid { grid-template-columns: repeat(3,1fr); } }
 
     .disc-card {
-      position: relative; overflow: hidden;
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
-      border-radius: var(--r); padding: 2rem;
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      position: relative; overflow: hidden; isolation: isolate;
+      border-radius: var(--r); min-height: 22rem;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.9rem;
+      border: 1px solid rgba(255,255,255,.10);
+      transition: transform .35s ease, border-color .35s ease;
     }
-    .disc-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,.35); }
-    .disc-card.c-cyan:hover  { border-color: rgba(6,182,212,.35); }
-    .disc-card.c-lime:hover  { border-color: rgba(163,230,53,.3); }
-    .disc-card.c-white:hover { border-color: rgba(255,255,255,.22); }
-
-    .disc-num-bg {
-      position: absolute; right: -.5rem; top: -.5rem;
-      font-family: var(--fd); font-size: 7.5rem; font-weight: 900; font-style: italic;
-      line-height: 1; user-select: none; pointer-events: none; z-index: 0;
-      color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.045);
-    }
-    .disc-icon {
-      position: relative; z-index: 1;
-      width: 3rem; height: 3rem; border-radius: .75rem;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
-    }
-    .i-cyan  { background: rgba(6,182,212,.1); border: 1px solid rgba(6,182,212,.2); color: var(--cyan); }
-    .i-lime  { background: rgba(163,230,53,.1); border: 1px solid rgba(163,230,53,.2); color: var(--lime); }
-    .i-white { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: var(--white); }
-
-    .disc-label { position: relative; z-index: 1; font-family: var(--fu); font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .3rem; }
-    .l-cyan  { color: var(--cyan); }
-    .l-lime  { color: var(--lime); }
-    .l-muted { color: var(--g4); }
-
-    .disc-name { position: relative; z-index: 1; font-family: var(--fd); font-size: 2rem; font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: .875rem; }
-    .disc-desc { position: relative; z-index: 1; font-size: .875rem; color: var(--g4); line-height: 1.7; margin-bottom: 1.5rem; }
-    .disc-foot { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,.07); padding-top: .875rem; display: flex; justify-content: space-between; align-items: center; }
-    .disc-foot-lbl { font-size: .75rem; color: var(--g4); font-weight: 500; }
-    .disc-foot-val { font-family: var(--fu); font-size: .875rem; font-weight: 800; }
-    .v-cyan  { color: var(--cyan); }
-    .v-lime  { color: var(--lime); }
-    .v-white { color: var(--white); }
-
-    /* ========= ATHLETENINFOS ========= */
-    .info-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
-    @media(min-width:600px){ .info-grid { grid-template-columns: repeat(2,1fr); } }
-    @media(min-width:900px){ .info-grid { grid-template-columns: repeat(3,1fr); } }
-
-    .info-card {
-      padding: 1.75rem;
-      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06);
-      border-left: 3px solid var(--cyan); border-radius: var(--r);
-      transition: transform .3s, background .3s, border-left-color .3s;
-    }
-    .info-card:hover { transform: translateX(4px); background: rgba(6,182,212,.04); border-left-color: var(--lime); }
-    .info-icon {
-      width: 2.5rem; height: 2.5rem; border-radius: .625rem;
-      background: rgba(6,182,212,.08); border: 1px solid rgba(6,182,212,.15);
-      color: var(--cyan); display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1rem;
-    }
-    .info-title { font-family: var(--fu); font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
-    .info-text  { font-size: .8125rem; color: var(--g4); line-height: 1.7; }
-    .info-detail {
-      margin-top: .875rem; padding-top: .875rem;
-      border-top: 1px solid rgba(255,255,255,.05);
-      font-family: var(--fu); font-size: .7rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .1em; color: var(--cyan);
-    }
-
-    /* ========= BRIEFING BANNER ========= */
-    .briefing-banner {
-      display: flex; align-items: center; gap: 1.75rem;
-      margin-top: 2.25rem;
-      padding: 1.5rem 2rem;
-      background: rgba(6,182,212,.05);
-      border: 1px solid rgba(6,182,212,.18);
-      border-left: 3px solid var(--cyan);
-      border-radius: var(--r);
-      text-decoration: none; color: inherit;
-      transition: background .25s, border-color .25s, transform .25s;
-    }
-    .briefing-banner:hover {
-      background: rgba(6,182,212,.1);
-      border-color: rgba(6,182,212,.38);
-      transform: translateY(-2px);
-    }
-    .briefing-icon {
-      flex-shrink: 0;
-      width: 2.75rem; height: 2.75rem;
-      background: rgba(6,182,212,.12); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--cyan);
-    }
-    .briefing-body { flex: 1; min-width: 0; }
-    .briefing-label {
-      font-family: var(--fu); font-size: .7rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .12em;
-      color: var(--cyan); margin-bottom: .3rem;
-    }
-    .briefing-title {
-      font-family: var(--fu); font-size: 1.05rem; font-weight: 700;
-      color: var(--white); margin-bottom: .3rem;
-    }
-    .briefing-desc { font-size: .8rem; color: var(--g4); line-height: 1.6; }
-    .briefing-arrow {
-      flex-shrink: 0; color: var(--cyan);
-      transition: transform .25s;
-    }
-    .briefing-banner:hover .briefing-arrow { transform: translateX(4px); }
-    @media(max-width:600px){
-      .briefing-banner { flex-wrap: wrap; }
-      .briefing-arrow  { display: none; }
-    }
-
-    /* ========= AUSSCHREIBUNG ========= */
-    .ausschr-section {
-      background: linear-gradient(135deg, rgba(6,182,212,.05) 0%, rgba(163,230,53,.03) 100%);
-      border-top: 1px solid rgba(6,182,212,.08); border-bottom: 1px solid rgba(163,230,53,.06);
-    }
-    .ausschr-grid { display: grid; gap: 3rem; grid-template-columns: 1fr; align-items: start; }
-    @media(min-width:900px){ .ausschr-grid { grid-template-columns: 1.1fr 1fr; } }
-
-    .steckbrief {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-      border-radius: 1.25rem; overflow: hidden;
-    }
-    .sb-head {
-      padding: 1.25rem 1.75rem;
-      background: rgba(6,182,212,.08); border-bottom: 1px solid rgba(6,182,212,.14);
-      display: flex; align-items: center; gap: .75rem;
-    }
-    .sb-head-icon {
-      width: 2rem; height: 2rem; border-radius: .5rem;
-      background: rgba(6,182,212,.15); color: var(--cyan);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .sb-head-title { font-family: var(--fu); font-size: .9375rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
-    .sb-row { display: flex; align-items: baseline; padding: .875rem 1.75rem; border-bottom: 1px solid rgba(255,255,255,.04); transition: background .2s; }
-    .sb-row:last-child { border-bottom: none; }
-    .sb-row:hover { background: rgba(255,255,255,.02); }
-    .sb-key { flex: 0 0 9rem; font-family: var(--fu); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--g5); }
-    .sb-val { flex: 1; font-size: .9375rem; font-weight: 600; color: var(--g3); }
-    .sb-val strong { color: var(--white); font-weight: 700; }
-    .sb-val.hl { color: var(--lime); font-weight: 800; }
-
-    .ausschr-cta { display: flex; flex-direction: column; gap: 2rem; justify-content: center; }
-    .ausschr-title { font-family: var(--fd); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 1.05; }
-    .ausschr-sub { font-size: 1rem; color: var(--g3); line-height: 1.75; }
-    .ausschr-btns { display: flex; flex-wrap: wrap; gap: 1rem; }
-
-    /* ========= SPONSORS ========= */
-    .sponsors-section { background: rgba(8,18,38,.8); border-top: 1px solid rgba(255,255,255,.04); padding: 3.5rem 0; }
-    .sp-label { text-align: center; font-family: var(--fu); font-size: .5625rem; font-weight: 700; text-transform: uppercase; letter-spacing: .2em; color: var(--g4); margin-bottom: 2.5rem; }
-    .sp-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3.5rem; opacity: .75; transition: opacity .4s; }
-    .sp-row:hover { opacity: 1; }
-    .sp-item { font-family: var(--fd); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; }
-    .sp-naspa   { color: var(--g3); }
-    .sp-sebamed { color: #ef4444; }
-    .sp-tsg     { color: var(--cyan); font-style: italic; }
-
-    /* ========= FOOTER ========= */
-    .footer { background: #020810; border-top: 1px solid rgba(255,255,255,.04); padding: 2.5rem 0; }
-    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
-    @media(min-width:768px){ .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
-    .footer-copy { font-family: var(--fu); font-size: .875rem; font-weight: 600; color: var(--g4); }
-    .footer-org  { font-size: .75rem; color: var(--g4); margin-top: .2rem; }
-    .footer-links { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; justify-content: center; }
-    .footer-links a { font-size: .8125rem; font-weight: 500; color: var(--g4); transition: color .2s; }
-    .footer-links a:hover { color: var(--white); }
-
-    /* ========= REVEAL ========= */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.in { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: .1s; }
-    .d2 { transition-delay: .2s; }
-    .d3 { transition-delay: .3s; }
-    .d4 { transition-delay: .4s; }
-    .d5 { transition-delay: .5s; }
-
-    /* ========= HERO PHOTO ========= */
-    .hero-photo {
-      position: absolute; inset: 0; z-index: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
-    }
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 1;
-      background:
-        linear-gradient(135deg, rgba(5,13,26,.9) 0%, rgba(5,13,26,.62) 55%, rgba(5,13,26,.8) 100%),
-        radial-gradient(ellipse 70% 55% at 12% 50%, rgba(6,182,212,.13) 0%, transparent 58%),
-        radial-gradient(ellipse 55% 45% at 88% 75%, rgba(107,142,35,.07) 0%, transparent 55%);
-    }
-
-    /* ========= DISC CARD PHOTO ========= */
+    .disc-card:hover { transform: translateY(-6px); border-color: rgba(204,255,0,.45); }
     .disc-card-img {
-      position: absolute; inset: 0; z-index: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      opacity: .12;
-      transition: opacity .35s ease;
+      position: absolute; inset: 0; z-index: -2;
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(.55) brightness(.62);
+      transition: transform .6s ease;
     }
-    .disc-card:hover .disc-card-img { opacity: .2; }
+    .disc-card:hover .disc-card-img { transform: scale(1.05); }
+    .disc-card::after {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(to top, rgba(8,11,15,.94) 8%, rgba(8,11,15,.62) 46%, rgba(8,11,15,.34) 100%);
+    }
+    .disc-idx {
+      font-family: var(--fu); font-size: .65rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .2em; color: var(--volt);
+      margin-bottom: .5rem;
+    }
+    .disc-name {
+      font-family: var(--fd); font-size: clamp(1.9rem,4vw,2.5rem); font-weight: 900; font-style: italic;
+      text-transform: uppercase; letter-spacing: -.015em; color: var(--off); margin-bottom: .7rem;
+    }
+    .disc-desc { font-size: .85rem; color: #C3CBD6; line-height: 1.7; margin-bottom: 1.3rem; }
+    .disc-foot {
+      border-top: 1px solid rgba(255,255,255,.18); padding-top: .85rem;
+      display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+    }
+    .disc-foot-lbl { font-family: var(--fu); font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #9BA5B4; }
+    .disc-foot-val { font-family: var(--fd); font-size: 1.25rem; font-weight: 900; color: var(--volt); letter-spacing: .01em; }
 
-    /* ========= ATMOSPHERE DIVIDER ========= */
-    .atmo-divider {
-      position: relative;
-      height: clamp(200px, 28vw, 380px);
-      overflow: hidden;
+    /* ========= ATMOSPHERE ========= */
+    .atmo {
+      position: relative; height: clamp(190px, 26vw, 340px); overflow: hidden;
+      background: var(--navy);
     }
-    .atmo-divider img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center 30%;
-      display: block;
-    }
+    .atmo img { width: 100%; height: 100%; object-fit: cover; object-position: center 32%; filter: saturate(.6) brightness(.72); }
     .atmo-veil {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom,
-        var(--bg) 0%, transparent 20%,
-        transparent 80%, var(--bg2) 100%);
+      background: linear-gradient(to bottom, var(--navy) 0%, transparent 26%, transparent 72%, var(--pure) 100%);
     }
 
-    /* ========= GALLERY ========= */
-    .gallery-section { overflow: hidden; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: .625rem;
+    /* ========= INFO-KARTEN ========= */
+    .info-grid { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+    @media(min-width:600px){ .info-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(min-width:960px){ .info-grid { grid-template-columns: repeat(3,1fr); } }
+    .info-card {
+      padding: 1.7rem; background: var(--surface);
+      border: 1px solid var(--line); border-left: 4px solid var(--volt);
+      border-radius: var(--r);
+      transition: transform .3s, box-shadow .3s;
     }
-    .gal-item {
-      overflow: hidden; border-radius: var(--r);
-      aspect-ratio: 4/3; position: relative; display: block;
-      cursor: zoom-in;
+    .info-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(16,20,26,.10); }
+    .info-title { font-family: var(--fu); font-size: 1.05rem; font-weight: 800; margin-bottom: .55rem; }
+    .info-text  { font-size: .85rem; color: var(--mute); line-height: 1.75; }
+    .info-detail {
+      margin-top: .95rem; padding-top: .95rem; border-top: 1px solid var(--line);
+      font-family: var(--fu); font-size: .7rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .11em; color: var(--txt);
     }
+
+    /* ========= ARCHIV ========= */
+    .arc-grid { display: grid; gap: 1.1rem; grid-template-columns: 1fr; margin-top: 2.5rem; }
+    @media(min-width:760px){ .arc-grid { grid-template-columns: repeat(3,1fr); } }
+    .arc-card {
+      display: flex; flex-direction: column; gap: .55rem;
+      padding: 1.7rem; border-radius: var(--r);
+      background: var(--surface); border: 1px solid var(--line);
+      transition: transform .3s, border-color .3s;
+    }
+    .arc-card:hover { transform: translateY(-5px); border-color: var(--volt); }
+    .arc-kicker { font-family: var(--fu); font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: var(--volt); }
+    .arc-title { font-family: var(--fd); font-size: 1.7rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -.01em; }
+    .arc-text { font-size: .83rem; color: var(--mute); line-height: 1.7; }
+    .arc-more {
+      margin-top: auto; padding-top: .9rem;
+      font-family: var(--fu); font-size: .72rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .1em; color: var(--txt);
+      display: inline-flex; align-items: center; gap: .45rem;
+    }
+    .arc-card:hover .arc-more { color: var(--volt); }
+
+    /* ========= GALERIE ========= */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .6rem; }
+    .gal-item { overflow: hidden; border-radius: var(--r); aspect-ratio: 4/3; position: relative; display: block; cursor: zoom-in; }
     .gal-item:first-child  { grid-column: span 2; aspect-ratio: 16/9; }
     .gal-item:nth-child(4) { grid-column: span 2; aspect-ratio: 16/9; }
     .gal-item img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      filter: saturate(.72) brightness(.88);
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(.7) brightness(.86);
       transition: transform .45s ease, filter .45s ease;
     }
     .gal-item:hover img { transform: scale(1.05); filter: saturate(.92) brightness(1); }
@@ -576,70 +530,128 @@
       .gal-item:nth-child(4) { grid-column: span 1; aspect-ratio: 4/3; }
     }
 
-    /* ========= LIGHTBOX ========= */
-    .lightbox {
-      display: none; position: fixed; inset: 0; z-index: 10000;
-      background: rgba(5,13,26,.96); backdrop-filter: blur(6px);
-      align-items: center; justify-content: center;
+    /* ========= AUSSCHREIBUNG ========= */
+    .ausschr-grid { display: grid; gap: 3rem; grid-template-columns: 1fr; align-items: start; }
+    @media(min-width:920px){ .ausschr-grid { grid-template-columns: 1.05fr 1fr; } }
+    .steckbrief { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; }
+    .sb-head {
+      padding: 1.15rem 1.7rem; background: var(--volt); color: var(--navy);
+      font-family: var(--fu); font-size: .8125rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .13em;
     }
-    .lightbox.open { display: flex; }
-    .lightbox-inner {
-      position: relative; max-width: 90vw; max-height: 90vh;
-      display: flex; align-items: center; justify-content: center;
+    .sb-row { display: flex; align-items: baseline; gap: 1rem; padding: .9rem 1.7rem; border-bottom: 1px solid var(--line); }
+    .sb-row:last-child { border-bottom: none; }
+    .sb-key { flex: 0 0 8.5rem; font-family: var(--fu); font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--mute); }
+    .sb-val { flex: 1; font-size: .9375rem; font-weight: 500; color: var(--txt); }
+    .sb-val strong { font-weight: 800; }
+    .sb-val.hl { font-family: var(--fd); font-size: 1.15rem; font-weight: 900; letter-spacing: .01em; }
+    @media(max-width:460px){
+      .sb-row { flex-direction: column; gap: .2rem; }
+      .sb-key { flex: none; }
     }
-    .lightbox-inner img {
-      max-width: 90vw; max-height: 90vh;
-      object-fit: contain; border-radius: var(--r);
-      box-shadow: 0 0 60px rgba(6,182,212,.18);
-      display: block;
+    .ausschr-cta { display: flex; flex-direction: column; gap: 1.75rem; }
+    .ausschr-title { font-family: var(--fd); font-size: clamp(2rem,5vw,3.4rem); font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 1.02; }
+    .ausschr-sub { font-size: 1rem; color: var(--mute); line-height: 1.75; }
+    .ausschr-btns { display: flex; flex-wrap: wrap; gap: .9rem; }
+
+    /* ========= BRIEFING-BANNER ========= */
+    .briefing {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-top: 2.25rem; padding: 1.5rem 1.9rem;
+      background: var(--surface); border: 1px solid var(--line);
+      border-left: 4px solid var(--red); border-radius: var(--r);
+      transition: transform .25s, border-color .25s, box-shadow .25s;
     }
-    .lightbox-close {
-      position: fixed; top: 1.25rem; right: 1.5rem;
-      background: none; border: 2px solid rgba(255,255,255,.25);
-      color: #fff; width: 2.75rem; height: 2.75rem;
-      border-radius: 50%; font-size: 1.4rem; line-height: 1;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: border-color .2s, background .2s;
+    .briefing:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(16,20,26,.12); }
+    .briefing-body { flex: 1; min-width: 0; }
+    .briefing-label { font-family: var(--fu); font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--red); margin-bottom: .3rem; }
+    .briefing-title { font-family: var(--fu); font-size: 1.05rem; font-weight: 800; margin-bottom: .3rem; }
+    .briefing-desc { font-size: .82rem; color: var(--mute); line-height: 1.65; }
+    .briefing-arrow { flex-shrink: 0; transition: transform .25s; }
+    .briefing:hover .briefing-arrow { transform: translateX(5px); }
+    @media(max-width:620px){ .briefing { flex-wrap: wrap; } .briefing-arrow { display: none; } }
+
+    /* ========= PARTNER ========= */
+    .sp-label { text-align: center; font-family: var(--fu); font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .22em; color: var(--mute); margin-bottom: 2.5rem; }
+    .sp-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3.5rem; }
+    .sp-item { font-family: var(--fd); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; color: var(--txt); opacity: .72; transition: opacity .3s; }
+    .sp-item:hover { opacity: 1; }
+    .sp-red { color: var(--red); opacity: .85; }
+
+    /* ========= FOOTER ========= */
+    .footer { position: relative; padding: 4rem 0 2.5rem; overflow: hidden; }
+    .footer-hills { position: absolute; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; }
+    .footer-hills svg { width: 100%; height: auto; display: block; }
+    .footer-hills path { fill: none; stroke: var(--volt); stroke-width: 2; opacity: .12; }
+    .footer-inner { position: relative; z-index: 1; display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+    @media(min-width:820px){ .footer-inner { grid-template-columns: 1.2fr 1fr 1fr; } }
+    .footer .brand-2 { color: var(--t-dark-mute); }
+    .footer-meta { margin-top: 1.2rem; font-size: .82rem; color: var(--t-dark-mute); line-height: 1.8; }
+    .footer-meta .date { color: var(--volt); font-weight: 700; }
+    .footer-h {
+      font-family: var(--fu); font-size: .68rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .16em; color: var(--t-dark);
+      margin-bottom: 1rem;
     }
-    .lightbox-close:hover { border-color: var(--cyan); background: var(--cyan-10); }
-    .lightbox-nav {
-      position: fixed; top: 50%; transform: translateY(-50%);
-      background: none; border: 2px solid rgba(255,255,255,.2);
-      color: #fff; width: 3rem; height: 3rem; border-radius: 50%;
-      font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: border-color .2s, background .2s;
-    }
-    .lightbox-nav:hover { border-color: var(--cyan); background: var(--cyan-10); }
-    .lightbox-prev { left: 1rem; }
-    .lightbox-next { right: 1rem; }
-    @media(max-width:640px){
-      .lightbox-nav { display: none; }
+    .footer-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-list a { font-size: .85rem; color: var(--t-dark-mute); transition: color .2s; }
+    .footer-list a:hover { color: var(--volt); }
+    .footer-bottom {
+      position: relative; z-index: 1;
+      margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between;
+      font-size: .78rem; color: var(--t-dark-mute);
     }
 
-    /* ========= SKIP LINK ========= */
+    /* ========= REVEAL ========= */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .09s; } .d2 { transition-delay: .18s; }
+    .d3 { transition-delay: .27s; } .d4 { transition-delay: .36s; } .d5 { transition-delay: .45s; }
+
+    /* ========= LIGHTBOX ========= */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(8,11,15,.97); backdrop-filter: blur(6px); align-items: center; justify-content: center; }
+    .lightbox.open { display: flex; }
+    .lightbox-inner { position: relative; max-width: 90vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
+    .lightbox-inner img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: var(--r); }
+    .lightbox-close, .lightbox-nav {
+      position: fixed; background: none; border: 2px solid rgba(255,255,255,.25);
+      color: #fff; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, background .2s;
+    }
+    .lightbox-close { top: 1.25rem; right: 1.5rem; width: 2.75rem; height: 2.75rem; font-size: 1.4rem; line-height: 1; }
+    .lightbox-nav { top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; font-size: 1.4rem; }
+    .lightbox-close:hover, .lightbox-nav:hover { border-color: var(--volt); background: rgba(204,255,0,.12); }
+    .lightbox-prev { left: 1rem; } .lightbox-next { right: 1rem; }
+    @media(max-width:640px){ .lightbox-nav { display: none; } }
+
+    /* ========= SKIP-LINK ========= */
     .skip-link {
       position: absolute; top: -999px; left: 1rem; z-index: 9999;
-      padding: .75rem 1.5rem; background: var(--lime); color: #071004;
-      font-family: var(--fu); font-size: .875rem; font-weight: 700;
-      border-radius: var(--pill); text-transform: uppercase; letter-spacing: .06em;
+      padding: .75rem 1.5rem; background: var(--volt); color: var(--navy);
+      font-family: var(--fu); font-size: .875rem; font-weight: 800;
+      border-radius: var(--pill); text-transform: uppercase; letter-spacing: .07em;
     }
     .skip-link:focus { top: 1rem; }
 
     /* ========= REDUCED MOTION ========= */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
       }
       .reveal { opacity: 1 !important; transform: none !important; }
     }
 
-    /* ========= MOBILE TWEAKS ========= */
+    /* ========= MOBILE ========= */
     @media(max-width:539px){
-      .countdown { gap: .5rem; }
-      .cd-unit { min-width: 4.25rem; padding: .75rem; }
-      .hero-ctas .btn { flex: 1 1 100%; justify-content: center; }
+      .countdown { gap: .45rem; }
+      .cd-unit { min-width: 4.1rem; padding: .7rem .6rem; }
+      .hero-ctas .btn { flex: 1 1 100%; }
+      .sp-row { gap: 2rem; }
+      .disc-card { min-height: 19rem; }
     }
   </style>
 </head>
@@ -647,15 +659,19 @@
 
 <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
-<!-- NAV -->
 <header>
   <nav class="navbar" aria-label="Hauptnavigation">
     <div class="container navbar-inner">
-      <a href="#" class="logo" aria-label="Limes Triathlon Taunusstein – Startseite">
-        <div>
-          <span class="logo-name">Limes Triathlon Taunusstein</span>
-          <span class="logo-sub">ehemals Erich-Fill-Triathlon</span>
-        </div>
+
+      <a href="#" class="brand" aria-label="Erich-Fill-Triathlon Taunusstein – Startseite">
+        <svg class="brand-mark" viewBox="0 0 120 38" fill="none" aria-hidden="true">
+          <path class="m-top" d="M4,24 C26,6 44,4 64,15 C84,26 100,10 116,14" stroke-width="4" stroke-linecap="round"/>
+          <path class="m-bot" d="M4,33 C28,20 46,24 66,28 C88,32 102,23 116,27" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-1">Erich-Fill-Triathlon</span>
+          <span class="brand-2">Taunusstein</span>
+        </span>
       </a>
 
       <ul class="nav-links" role="list">
@@ -663,13 +679,13 @@
         <li><a href="#news">Aktuelles</a></li>
         <li><a href="#disciplines">Wettkampf</a></li>
         <li><a href="#athleteninfos">Athleten</a></li>
-        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#archiv">Archiv 2026</a></li>
         <li><a href="#ausschreibung">Ausschreibung</a></li>
         <li><a href="#sponsors">Partner</a></li>
       </ul>
 
       <div class="nav-end">
-        <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-lime" id="navCta">Anmelden</a>
+        <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="navCta">Anmeldung 2027</a>
         <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
           <span></span><span></span><span></span>
         </button>
@@ -681,76 +697,65 @@
       <a href="#news" onclick="closeMobile()">Aktuelles</a>
       <a href="#disciplines" onclick="closeMobile()">Wettkampf</a>
       <a href="#athleteninfos" onclick="closeMobile()">Athleteninfos</a>
-      <a href="#galerie" onclick="closeMobile()">Galerie</a>
+      <a href="#archiv" onclick="closeMobile()">Archiv 2026</a>
       <a href="#ausschreibung" onclick="closeMobile()">Ausschreibung</a>
       <a href="#sponsors" onclick="closeMobile()">Partner</a>
-      <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-lime" onclick="closeMobile()">Jetzt Anmelden</a>
+      <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="closeMobile()">Anmeldung 2027</a>
     </div>
   </nav>
 </header>
 
 <main id="main-content">
 
-  <!-- HERO -->
+  <!-- ══════════ HERO ══════════ -->
   <section class="hero" id="hero" aria-labelledby="heroH1">
     <img class="hero-photo" src="images/hero.jpg" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
-    <div class="hero-bg"       aria-hidden="true"></div>
-    <div class="hero-lines"    aria-hidden="true"></div>
-    <div class="hero-orb orb-1" aria-hidden="true"></div>
-    <div class="hero-orb orb-2" aria-hidden="true"></div>
-    <div class="hero-watermark" aria-hidden="true">38</div>
-    <div class="hero-stamp" aria-hidden="true">
-      <img src="images/limes-logo.png" alt="">
+    <div class="hero-veil" aria-hidden="true"></div>
+
+    <div class="hero-hills" aria-hidden="true">
+      <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMid slice">
+        <path class="h1" d="M-40,212 C180,110 340,96 520,148 C700,200 830,104 1010,92 C1180,80 1310,164 1480,138"/>
+        <path class="h2" d="M-40,258 C200,178 360,214 540,206 C740,197 860,136 1050,146 C1230,155 1330,232 1480,218"/>
+        <path class="h3" d="M-40,164 C160,74 300,52 480,86 C660,120 800,44 990,40 C1170,36 1320,112 1480,88"/>
+      </svg>
     </div>
 
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow">
-          <div class="eyebrow-dot"></div>
-          38. Auflage · Samstag, 13. Juni 2026 · Taunusstein
-        </div>
+        <p class="hero-eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          39. Auflage · Sonntag, 16. Mai 2027 · Taunusstein
+        </p>
+
+        <svg class="hero-mark" viewBox="0 0 220 44" fill="none" aria-hidden="true">
+          <path class="m-top" d="M6,26 C46,4 82,2 118,16 C154,30 186,8 214,14" stroke-width="5" stroke-linecap="round"/>
+          <path class="m-bot" d="M6,38 C50,21 86,26 122,31 C160,36 188,25 214,29" stroke-width="5" stroke-linecap="round"/>
+        </svg>
 
         <h1 class="hero-title" id="heroH1">
-          <span>Limes</span>
-          <span class="grad">Triathlon</span>
-          <span class="place">Taunusstein</span>
+          <span class="t1">Erich-Fill</span>
+          <span class="t2">Triathlon</span>
+          <span class="t3">Taunusstein</span>
         </h1>
-
-        <div class="hero-rule"></div>
-        <p class="hero-formerly">ehemals Erich-Fill-Triathlon</p>
 
         <p class="hero-sub">
           Der Klassiker im Taunus — 700&nbsp;Höhenmeter, drei Disziplinen, ein Ziel.<br>
-          <strong style="color:var(--white)">Bist du bereit für die Herausforderung?</strong>
+          <strong>Bist du bereit für die Herausforderung?</strong>
         </p>
 
-        <div class="countdown" role="timer" aria-label="Countdown bis 13. Juni 2026">
-          <div class="cd-unit">
-            <span class="cd-num days" id="cd-days">--</span>
-            <span class="cd-label">Tage</span>
-          </div>
-          <div class="cd-unit">
-            <span class="cd-num hours" id="cd-hours">--</span>
-            <span class="cd-label">Stunden</span>
-          </div>
-          <div class="cd-unit">
-            <span class="cd-num mins" id="cd-mins">--</span>
-            <span class="cd-label">Minuten</span>
-          </div>
-          <div class="cd-unit">
-            <span class="cd-num secs" id="cd-secs">--</span>
-            <span class="cd-label">Sekunden</span>
-          </div>
+        <div class="countdown" role="timer" aria-label="Countdown bis 16. Mai 2027">
+          <div class="cd-unit"><span class="cd-num days" id="cd-days">--</span><span class="cd-label">Tage</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">Stunden</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">Minuten</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">Sekunden</span></div>
         </div>
 
         <div class="hero-ctas">
-          <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-lime btn-xl">
+          <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            Jetzt Anmelden
+            Anmeldung 2027
           </a>
-          <a href="#ausschreibung" class="btn btn-ghost btn-xl">
-            Ausschreibung &amp; Infos
-          </a>
+          <a href="#ausschreibung" class="btn btn-outline btn-xl">Ausschreibung &amp; Infos</a>
         </div>
       </div>
     </div>
@@ -763,46 +768,43 @@
     </div>
   </section>
 
-  <!-- STATS BAR -->
-  <div class="stats-bar" aria-label="Veranstaltungs-Kennzahlen">
+  <!-- ══════════ STATS (dunkel) ══════════ -->
+  <div class="stats-bar ctx-deep has-divider" aria-label="Veranstaltungs-Kennzahlen">
     <div class="container">
       <div class="stats-row">
         <div class="stat">
-          <div class="stat-num-wrap">
-            <span class="stat-num" data-target="38">0</span>
-            <span class="stat-sfx">.</span>
-          </div>
+          <div class="stat-num-wrap"><span class="stat-num" data-target="39">0</span><span class="stat-sfx">.</span></div>
           <div class="stat-lbl">Auflage</div>
         </div>
         <div class="stats-div"></div>
         <div class="stat">
-          <div class="stat-num-wrap">
-            <span class="stat-num" data-target="700">0</span>
-            <span class="stat-sfx">+</span>
-          </div>
+          <div class="stat-num-wrap"><span class="stat-num" data-target="700">0</span><span class="stat-sfx">+</span></div>
           <div class="stat-lbl">Höhenmeter</div>
         </div>
         <div class="stats-div"></div>
         <div class="stat">
-          <div class="stat-num-wrap">
-            <span class="stat-num" data-target="40">0</span>
-            <span class="stat-sfx"> km</span>
-          </div>
+          <div class="stat-num-wrap"><span class="stat-num" data-target="40">0</span><span class="stat-sfx">&nbsp;km</span></div>
           <div class="stat-lbl">Radstrecke</div>
         </div>
         <div class="stats-div"></div>
         <div class="stat">
-          <div class="stat-num-wrap">
-            <span class="stat-num" data-target="1989">0</span>
-          </div>
+          <div class="stat-num-wrap"><span class="stat-num" data-target="1989">0</span></div>
           <div class="stat-lbl">Gegründet</div>
         </div>
       </div>
     </div>
+
+    <!-- Übergang dunkel → hell -->
+    <div class="hill-divider to-light" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+        <path class="hill-fill" d="M0,74 C150,32 290,28 430,56 C580,86 680,40 820,34 C960,28 1080,70 1220,76 C1330,80 1390,54 1440,40 L1440,110 L0,110 Z"/>
+        <path class="hill-line" d="M0,90 C160,56 280,80 420,76 C580,71 680,44 840,50 C1000,56 1090,86 1250,84 C1350,83 1400,68 1440,60"/>
+      </svg>
+    </div>
   </div>
 
-  <!-- NEWS -->
-  <section class="section section-alt" id="news" aria-labelledby="newsH2">
+  <!-- ══════════ AKTUELLES (hell) ══════════ -->
+  <section class="section ctx-light has-divider" id="news" aria-labelledby="newsH2">
     <div class="container">
       <div class="sec-head">
         <p class="pretitle">Neuigkeiten</p>
@@ -811,58 +813,65 @@
 
       <div class="news-grid">
         <article class="news-card news-card-featured reveal" aria-labelledby="n0">
-          <div class="news-bar bar-news"></div>
+          <div class="news-bar bar-volt"></div>
           <div class="news-body">
             <div class="news-meta">
-              <span class="news-date">Januar 2026</span>
-              <span class="badge badge-rebrand">Umbenennung</span>
+              <span class="news-date">September 2026</span>
+              <span class="badge badge-volt">Neu</span>
             </div>
-            <h3 class="news-title" id="n0">Neuer Name, gleicher Geist</h3>
-            <p class="news-text">Nach 38 Jahren verabschiedet sich der <em>Erich-Fill-Triathlon</em> — und der <strong style="color:var(--white)">Limes Triathlon Taunusstein</strong> übernimmt das Erbe. Der Organisationswechsel zu <strong style="color:var(--white)">United Teams Rhein-Ruhr e.V.</strong> bringt frische Energie, aber die legendäre Strecke im Taunus, die einzigartige Atmosphäre am Freibad Hahn und die Leidenschaft für den Triathlon bleiben unverändert. Gleicher Geist. Neuer Name. Wir sehen uns am Start!</p>
+            <h3 class="news-title" id="n0">Der Erich-Fill-Triathlon ist zurück</h3>
+            <p class="news-text">Nach der Ausgabe 2026 übernimmt <strong>United Teams Rhein-Ruhr e.V.</strong> die Organisation — und führt den Klassiker unter seinem angestammten Namen weiter. Die legendäre Taunus-Strecke, die Atmosphäre am Freibad Hahn und der Charakter des Rennens bleiben. Neu sind ein frischer Auftritt und ein neuer Termin: <strong>Sonntag, 16. Mai 2027</strong>. Wir sehen uns am Start.</p>
           </div>
         </article>
 
         <article class="news-card reveal" aria-labelledby="n1">
-          <div class="news-bar bar-info"></div>
+          <div class="news-bar bar-volt"></div>
           <div class="news-body">
             <div class="news-meta">
-              <span class="news-date">Mai 2026</span>
-              <span class="badge badge-info">Wichtig</span>
+              <span class="news-date">September 2026</span>
+              <span class="badge">Termin</span>
             </div>
-            <h3 class="news-title" id="n1">Anmeldung 2026 ist geöffnet!</h3>
-            <p class="news-text">Startplätze für den Limes Triathlon Taunusstein 2026 sind freigegeben. Jetzt über den Bär-Service anmelden — Plätze sind begrenzt.</p>
+            <h3 class="news-title" id="n1">Termin steht: 16.&nbsp;Mai 2027</h3>
+            <p class="news-text">Die 39. Auflage findet am Sonntag, 16. Mai 2027, im Freibad Taunusstein-Hahn statt. Termin vormerken.</p>
           </div>
         </article>
 
         <article class="news-card reveal d1" aria-labelledby="n2">
-          <div class="news-bar bar-news"></div>
+          <div class="news-bar bar-volt"></div>
           <div class="news-body">
             <div class="news-meta">
-              <span class="news-date">April 2026</span>
-              <span class="badge badge-news">Termin</span>
+              <span class="news-date">Ab sofort</span>
+              <span class="badge badge-red">Wichtig</span>
             </div>
-            <h3 class="news-title" id="n2">Termin bestätigt: 13.&nbsp;Juni 2026</h3>
-            <p class="news-text">Der Limes Triathlon Taunusstein findet am Samstag, 13. Juni 2026, im Freibad Taunusstein-Hahn statt.</p>
+            <h3 class="news-title" id="n2">Anmeldung 2027 geöffnet</h3>
+            <p class="news-text">Startplätze für Olympische Distanz und Sprint sind freigegeben. Anmeldung über den Bär-Service — Plätze sind begrenzt.</p>
           </div>
         </article>
 
         <article class="news-card reveal d2" aria-labelledby="n3">
-          <div class="news-bar bar-muted"></div>
+          <div class="news-bar"></div>
           <div class="news-body">
             <div class="news-meta">
-              <span class="news-date">März 2026</span>
-              <span class="badge badge-muted">Download</span>
+              <span class="news-date">Rückblick</span>
+              <span class="badge">Archiv</span>
             </div>
-            <h3 class="news-title" id="n3">Ausschreibung 2026 verfügbar</h3>
-            <p class="news-text">Alle Streckendetails, Wettkampfregeln und Startzeitenpläne in der offiziellen Ausschreibung als PDF.</p>
+            <h3 class="news-title" id="n3">Ergebnisse &amp; Bilder 2026</h3>
+            <p class="news-text">Alle Ergebnisse und 113 Fotos der Ausgabe 2026 sind im Archiv abrufbar.</p>
           </div>
         </article>
       </div>
     </div>
+
+    <!-- Übergang hell → dunkel -->
+    <div class="hill-divider to-dark" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+        <path class="hill-fill" d="M0,60 C160,92 300,88 460,58 C620,28 740,74 900,78 C1060,82 1180,36 1320,30 C1380,27 1420,38 1440,44 L1440,110 L0,110 Z"/>
+      </svg>
+    </div>
   </section>
 
-  <!-- DISCIPLINES -->
-  <section class="section" id="disciplines" aria-labelledby="discH2">
+  <!-- ══════════ DISZIPLINEN (dunkel) ══════════ -->
+  <section class="section ctx-dark" id="disciplines" aria-labelledby="discH2">
     <div class="container">
       <div class="sec-head">
         <p class="pretitle">Wettkampf-Details</p>
@@ -870,64 +879,50 @@
       </div>
 
       <div class="disc-grid">
-
-        <article class="disc-card c-cyan reveal" aria-labelledby="swimH3">
+        <article class="disc-card reveal" aria-labelledby="swimH3">
           <img class="disc-card-img" src="images/swim.jpg" alt="" aria-hidden="true" loading="lazy">
-          <span class="disc-num-bg" aria-hidden="true">01</span>
-          <div class="disc-icon i-cyan" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16c1-1.5 2.5-2.5 4-2.5s3 1 4 2.5 2.5 2.5 4 2.5 3-1 4-2.5"/><path d="M2 11c1-1.5 2.5-2.5 4-2.5s3 1 4 2.5 2.5 2.5 4 2.5 3-1 4-2.5"/><circle cx="18.5" cy="5.5" r="1.5"/></svg>
-          </div>
-          <p class="disc-label l-cyan">Disziplin 01</p>
+          <p class="disc-idx">Disziplin 01</p>
           <h3 class="disc-name" id="swimH3">Schwimmen</h3>
           <p class="disc-desc">Abgesperrte 50-Meter-Bahn im beheizten Freibad Taunusstein-Hahn. Perfekte Bedingungen — Zuschauer jubeln von der Tribüne.</p>
           <div class="disc-foot">
             <span class="disc-foot-lbl">Distanz</span>
-            <span class="disc-foot-val v-white">500 m / 1.000 m</span>
+            <span class="disc-foot-val">500 m / 1.000 m</span>
           </div>
         </article>
 
-        <article class="disc-card c-lime reveal d1" aria-labelledby="bikeH3">
+        <article class="disc-card reveal d1" aria-labelledby="bikeH3">
           <img class="disc-card-img" src="images/bike.jpg" alt="" aria-hidden="true" loading="lazy">
-          <span class="disc-num-bg" aria-hidden="true">02</span>
-          <div class="disc-icon i-lime" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M5.5 17.5L9 10h4l5.5 7.5M13 10l2-3-3-2"/><path d="M9 10l3-5"/></svg>
-          </div>
-          <p class="disc-label l-lime">Disziplin 02</p>
+          <p class="disc-idx">Disziplin 02</p>
           <h3 class="disc-name" id="bikeH3">Radfahren</h3>
           <p class="disc-desc">Die berüchtigte Taunus-Strecke. Anspruchsvolle Steigungen bis 520&nbsp;m Höhe fordern Kletterqualitäten und kluge Renneinteilung.</p>
           <div class="disc-foot">
             <span class="disc-foot-lbl">Höhenmeter</span>
-            <span class="disc-foot-val v-lime">~700 HM</span>
+            <span class="disc-foot-val">~700 HM</span>
           </div>
         </article>
 
-        <article class="disc-card c-white reveal d2" aria-labelledby="runH3">
+        <article class="disc-card reveal d2" aria-labelledby="runH3">
           <img class="disc-card-img" src="images/run.jpg" alt="" aria-hidden="true" loading="lazy">
-          <span class="disc-num-bg" aria-hidden="true">03</span>
-          <div class="disc-icon i-white" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1"/><path d="M7 17l2-4 3 2 3-5 3 7"/><path d="M8 11l1.5-3 2.5 1.5 2-3"/></svg>
-          </div>
-          <p class="disc-label l-muted">Disziplin 03</p>
+          <p class="disc-idx">Disziplin 03</p>
           <h3 class="disc-name" id="runH3">Laufen</h3>
           <p class="disc-desc">Abwechslungsreicher Kurs rund ums Stadion. Fanzonen und lautstarke Unterstützung tragen dich sicher ins Ziel.</p>
           <div class="disc-foot">
             <span class="disc-foot-lbl">Distanz</span>
-            <span class="disc-foot-val v-white">5 km / 10 km</span>
+            <span class="disc-foot-val">5 km / 10 km</span>
           </div>
         </article>
-
       </div>
     </div>
   </section>
 
-  <!-- ATMOSPHERE DIVIDER -->
-  <div class="atmo-divider" role="img" aria-label="Triathlon-Atmosphäre: Wettkampf-Tattoo mit Swim, Bike, Run Symbolen">
+  <!-- ══════════ ATMOSPHÄRE ══════════ -->
+  <div class="atmo" role="img" aria-label="Triathlon-Atmosphäre: Wettkampf-Tattoo mit Swim, Bike, Run Symbolen">
     <img src="images/tattoo.jpg" alt="" loading="lazy">
     <div class="atmo-veil" aria-hidden="true"></div>
   </div>
 
-  <!-- ATHLETENINFOS -->
-  <section class="section section-alt" id="athleteninfos" aria-labelledby="infoH2">
+  <!-- ══════════ ATHLETENINFOS (weiß) ══════════ -->
+  <section class="section ctx-white has-divider" id="athleteninfos" aria-labelledby="infoH2">
     <div class="container">
       <div class="sec-head">
         <p class="pretitle">Für Teilnehmer</p>
@@ -935,87 +930,102 @@
       </div>
 
       <div class="info-grid">
-
         <div class="info-card reveal" aria-labelledby="i1">
-          <div class="info-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
           <h3 class="info-title" id="i1">Zeitplan</h3>
           <p class="info-text">Startunterlagenausgabe ab 07:00 Uhr. Wechselzone öffnet 07:30 Uhr, schließt 08:45 Uhr.</p>
           <div class="info-detail">Start Olympisch 09:00 · Sprint 09:30</div>
         </div>
 
         <div class="info-card reveal d1" aria-labelledby="i2">
-          <div class="info-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
           <h3 class="info-title" id="i2">Wechselzone</h3>
           <p class="info-text">Im Freibad Taunusstein-Hahn. Fahrrad inkl. Helm platzieren. Wechselzone schließt 30 Min. vor Start.</p>
           <div class="info-detail">Am Freibad · 65232 Taunusstein-Hahn</div>
         </div>
 
         <div class="info-card reveal d2" aria-labelledby="i3">
-          <div class="info-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
           <h3 class="info-title" id="i3">Startunterlagen</h3>
           <p class="info-text">Ausgabe nur am Renntag ab 07:00 Uhr vor Ort — kein Versand. Lichtbildausweis und Bestätigung mitbringen.</p>
           <div class="info-detail">Nur vor Ort · Kein Versand</div>
         </div>
 
         <div class="info-card reveal d1" aria-labelledby="i4">
-          <div class="info-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
           <h3 class="info-title" id="i4">Anreise &amp; Parken</h3>
           <p class="info-text">Kostenlose Parkplätze am Stadion Taunusstein. Frühzeitige Anreise empfohlen — Kapazitäten begrenzt.</p>
           <div class="info-detail">Parkplatz: Stadion Taunusstein-Hahn</div>
         </div>
 
         <div class="info-card reveal d2" aria-labelledby="i5">
-          <div class="info-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
           <h3 class="info-title" id="i5">Verpflegung</h3>
           <p class="info-text">Verpflegung auf der Radstrecke bei km&nbsp;20 sowie auf der Laufstrecke bei km&nbsp;2,5 und im Zielbereich.</p>
           <div class="info-detail">Wasser · Elektrolyte · Riegel</div>
         </div>
 
         <div class="info-card reveal d3" aria-labelledby="i6">
-          <div class="info-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
           <h3 class="info-title" id="i6">Zeitlimit</h3>
           <p class="info-text">Olympisch: 6 Std. Gesamtzeitlimit. Sprint: 3 Std. Chip-Zeitmessung nach offiziellen DTU-Regeln.</p>
           <div class="info-detail">Chip-Messung · Offizielle DTU-Regeln</div>
         </div>
-
       </div>
+    </div>
 
-      <a href="https://eft-briefing-2026.netlify.app/" target="_blank" rel="noopener noreferrer"
-         class="briefing-banner reveal" aria-label="Race Briefing 2026 öffnen">
-        <div class="briefing-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <div class="briefing-body">
-          <p class="briefing-label">Race Briefing 2026</p>
-          <p class="briefing-title">Vollständiges Wettkampf-Briefing</p>
-          <p class="briefing-desc">Strecken, Zeitpläne, Wechselzone, Regeln, Gefahrenstellen — alles was du vor dem Start wissen musst.</p>
-        </div>
-        <div class="briefing-arrow" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
-
+    <!-- Übergang weiß → dunkel -->
+    <div class="hill-divider to-dark" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+        <path class="hill-fill" d="M0,52 C140,86 280,94 440,66 C600,38 720,80 880,82 C1040,84 1170,40 1310,34 C1375,31 1418,42 1440,48 L1440,110 L0,110 Z"/>
+      </svg>
     </div>
   </section>
 
-  <!-- GALERIE -->
-  <section class="section gallery-section" id="galerie" aria-labelledby="galH2">
+  <!-- ══════════ ARCHIV 2026 (dunkel) ══════════ -->
+  <section class="section ctx-dark" id="archiv" aria-labelledby="arcH2">
+    <div class="container">
+      <div class="sec-head">
+        <p class="pretitle">Rückblick</p>
+        <h2 class="sec-title" id="arcH2">Archiv <span class="volt">2026</span></h2>
+        <p class="sec-sub">Die Ausgabe 2026 ist gelaufen. Ergebnisse, Bilder und das Race Briefing bleiben hier dauerhaft abrufbar.</p>
+      </div>
+
+      <div class="arc-grid">
+        <!-- TODO: Link zur Ergebnisliste 2026 eintragen (steht aktuell auf #) -->
+        <a href="#" class="arc-card reveal" aria-label="Ergebnisse 2026 ansehen">
+          <span class="arc-kicker">Ergebnisse</span>
+          <span class="arc-title">Ergebnisse 2026</span>
+          <span class="arc-text">Alle Platzierungen und Zeiten der Olympischen Distanz und des Sprints, offiziell per Chip gemessen.</span>
+          <span class="arc-more">
+            Zur Ergebnisliste
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <a href="galerie.html" class="arc-card reveal d1" aria-label="Alle 113 Bilder von 2026 ansehen">
+          <span class="arc-kicker">Bilder</span>
+          <span class="arc-title">113 Fotos</span>
+          <span class="arc-text">Impressionen vom Wettkampftag 2026 — Start, Wechselzone, Taunus-Anstiege und Zieleinlauf.</span>
+          <span class="arc-more">
+            Zur Galerie
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <a href="https://eft-briefing-2026.netlify.app/" target="_blank" rel="noopener noreferrer" class="arc-card reveal d2" aria-label="Race Briefing 2026 öffnen">
+          <span class="arc-kicker">Dokument</span>
+          <span class="arc-title">Race Briefing</span>
+          <span class="arc-text">Das vollständige Wettkampf-Briefing von 2026 mit Strecken, Zeitplänen und Regeln.</span>
+          <span class="arc-more">
+            Briefing öffnen
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ GALERIE (dunkel) ══════════ -->
+  <section class="section ctx-dark has-divider" id="galerie" aria-labelledby="galH2" style="padding-top:0">
     <div class="container">
       <div class="sec-head">
         <p class="pretitle">Impressionen</p>
-        <h2 class="sec-title" id="galH2">Der Klassiker in Bildern.</h2>
+        <h2 class="sec-title" id="galH2">Bilder 2026</h2>
       </div>
 
       <div class="gallery-grid">
@@ -1040,35 +1050,38 @@
       </div>
 
       <div style="text-align:center;margin-top:2.5rem;">
-        <a href="galerie.html" target="_blank" rel="noopener" class="btn btn-lime">
+        <a href="galerie.html" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           Alle 113 Fotos ansehen
         </a>
       </div>
     </div>
+
+    <!-- Übergang dunkel → hell -->
+    <div class="hill-divider to-light" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+        <path class="hill-fill" d="M0,70 C150,30 300,26 450,58 C600,90 720,44 880,38 C1040,32 1170,76 1310,80 C1375,82 1418,66 1440,58 L1440,110 L0,110 Z"/>
+        <path class="hill-line" d="M0,88 C160,54 290,78 440,74 C600,69 710,42 870,48 C1030,54 1150,88 1300,86 C1370,85 1412,72 1440,64"/>
+      </svg>
+    </div>
   </section>
 
-  <!-- AUSSCHREIBUNG -->
-  <section class="section ausschr-section" id="ausschreibung" aria-labelledby="ausH2">
+  <!-- ══════════ AUSSCHREIBUNG (hell) ══════════ -->
+  <section class="section ctx-light" id="ausschreibung" aria-labelledby="ausH2">
     <div class="container">
       <div class="ausschr-grid">
 
         <div class="steckbrief reveal">
-          <div class="sb-head">
-            <div class="sb-head-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <span class="sb-head-title">Renn-Steckbrief</span>
-          </div>
+          <div class="sb-head">Renn-Steckbrief 2027</div>
           <div>
-            <div class="sb-row"><span class="sb-key">Datum</span><span class="sb-val"><strong>Samstag, 13. Juni 2026</strong></span></div>
+            <div class="sb-row"><span class="sb-key">Datum</span><span class="sb-val hl">Sonntag, 16. Mai 2027</span></div>
             <div class="sb-row"><span class="sb-key">Ort</span><span class="sb-val">Freibad Taunusstein-Hahn, 65232</span></div>
             <div class="sb-row"><span class="sb-key">Veranstalter</span><span class="sb-val">United Teams Rhein-Ruhr e.V.</span></div>
             <div class="sb-row"><span class="sb-key">Kategorien</span><span class="sb-val"><strong>Olympisch</strong> &amp; Sprint</span></div>
-            <div class="sb-row"><span class="sb-key">Olympisch</span><span class="sb-val hl">1.000 m · 40 km · 10 km</span></div>
+            <div class="sb-row"><span class="sb-key">Olympisch</span><span class="sb-val"><strong>1.000 m · 40 km · 10 km</strong></span></div>
             <div class="sb-row"><span class="sb-key">Sprint</span><span class="sb-val">500 m · 20 km · 5 km</span></div>
             <div class="sb-row"><span class="sb-key">Höhenmeter</span><span class="sb-val"><strong>~700 HM</strong> (Olympisch)</span></div>
-            <div class="sb-row"><span class="sb-key">Anm.schluss</span><span class="sb-val">31. Mai 2026</span></div>
+            <div class="sb-row"><span class="sb-key">Anm.schluss</span><span class="sb-val">2. Mai 2027</span></div>
             <div class="sb-row"><span class="sb-key">Anmeldung</span><span class="sb-val">via Bär-Service (Online)</span></div>
           </div>
         </div>
@@ -1076,69 +1089,131 @@
         <div class="ausschr-cta reveal d2">
           <div>
             <p class="pretitle" style="margin-bottom:.75rem">Alle Infos auf einen Blick</p>
-            <h2 class="ausschr-title" id="ausH2">
-              Ausschreibung<br>
-              <span class="grad">2026</span>
-            </h2>
+            <h2 class="ausschr-title" id="ausH2">Ausschreibung<br><span style="color:var(--red)">2027</span></h2>
           </div>
           <p class="ausschr-sub">
             Die vollständige Ausschreibung enthält alle offiziellen Regeln, Streckenbeschreibungen, Zeitpläne und Startgeldinformationen als PDF zum Download.
           </p>
           <div class="ausschr-btns">
-            <a href="#" class="btn btn-lime btn-lg">
+            <!-- TODO: PDF-Link der Ausschreibung 2027 eintragen (steht aktuell auf #) -->
+            <a href="#" class="btn btn-dark btn-lg">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Ausschreibung (PDF)
             </a>
-            <a href="https://eft-briefing-2026.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              Race Briefing
-            </a>
-            <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+            <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              Jetzt Anmelden
+              Anmeldung 2027
             </a>
           </div>
+
+          <a href="https://eft-briefing-2026.netlify.app/" target="_blank" rel="noopener noreferrer" class="briefing" aria-label="Race Briefing 2026 öffnen">
+            <div class="briefing-body">
+              <p class="briefing-label">Archiv · Race Briefing 2026</p>
+              <p class="briefing-title">Briefing der Vorjahresausgabe</p>
+              <p class="briefing-desc">Strecken, Zeitpläne, Wechselzone und Regeln von 2026 — als Orientierung bis das Briefing 2027 erscheint.</p>
+            </div>
+            <div class="briefing-arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- SPONSORS -->
-  <section class="sponsors-section" id="sponsors" aria-label="Unsere Partner">
+  <!-- ══════════ PARTNER (weiß) ══════════ -->
+  <section class="section ctx-white has-divider" id="sponsors" aria-label="Unsere Partner" style="padding-top:4rem">
     <div class="container">
-      <p class="sp-label">Starke Partner des Limes Triathlons Taunusstein</p>
+      <p class="sp-label">Starke Partner des Erich-Fill-Triathlons</p>
       <div class="sp-row">
-        <span class="sp-item sp-naspa">Naspa Sparkasse</span>
-        <span class="sp-item sp-sebamed">sebamed<sup style="font-size:.6em">®</sup></span>
-        <span class="sp-item sp-tsg">United Teams Rhein-Ruhr</span>
+        <span class="sp-item">Naspa Sparkasse</span>
+        <span class="sp-item sp-red">sebamed<sup style="font-size:.6em">®</sup></span>
+        <span class="sp-item">United Teams Rhein-Ruhr</span>
       </div>
+    </div>
+
+    <!-- Übergang weiß → Footer -->
+    <div class="hill-divider to-deep" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+        <path class="hill-fill" d="M0,58 C150,90 300,92 450,62 C600,32 730,76 890,80 C1050,84 1180,38 1320,32 C1380,29 1420,40 1440,46 L1440,110 L0,110 Z"/>
+      </svg>
     </div>
   </section>
 
 </main>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container footer-inner">
-    <div>
-      <p class="footer-copy">© 2026 Limes Triathlon Taunusstein</p>
-      <p class="footer-org">Veranstalter: United Teams Rhein-Ruhr e.V.</p>
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer ctx-deep">
+  <div class="footer-hills" aria-hidden="true">
+    <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+      <path d="M-20,120 C180,44 340,30 520,76 C700,122 830,36 1010,26 C1190,16 1320,98 1460,72"/>
+      <path d="M-20,158 C200,96 360,126 540,120 C740,113 860,58 1050,66 C1230,74 1330,142 1460,130"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 120 38" fill="none" aria-hidden="true">
+            <path class="m-top" d="M4,24 C26,6 44,4 64,15 C84,26 100,10 116,14" stroke-width="4" stroke-linecap="round"/>
+            <path class="m-bot" d="M4,33 C28,20 46,24 66,28 C88,32 102,23 116,27" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-text">
+            <span class="brand-1">Erich-Fill-Triathlon</span>
+            <span class="brand-2">Taunusstein</span>
+          </span>
+        </div>
+        <p class="footer-meta">
+          <span class="date">Sonntag, 16. Mai 2027</span><br>
+          Freibad Taunusstein-Hahn<br>
+          65232 Taunusstein
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-h">Veranstaltung</p>
+        <ul class="footer-list" role="list">
+          <li><a href="#disciplines">Wettkampf</a></li>
+          <li><a href="#athleteninfos">Athleteninfos</a></li>
+          <li><a href="#ausschreibung">Ausschreibung</a></li>
+          <li><a href="#archiv">Archiv 2026</a></li>
+          <li><a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer">Anmeldung 2027</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-h">Kontakt &amp; Rechtliches</p>
+        <ul class="footer-list" role="list">
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">AGB</a></li>
+        </ul>
+      </div>
     </div>
-    <nav aria-label="Footer-Links">
-      <ul class="footer-links" role="list">
-        <li><a href="#">Impressum</a></li>
-        <li><a href="#">AGB</a></li>
-        <li><a href="#">Datenschutz</a></li>
-        <li><a href="#">Kontakt</a></li>
-      </ul>
-    </nav>
+
+    <div class="footer-bottom">
+      <span>© 2026 Erich-Fill-Triathlon Taunusstein</span>
+      <span>Veranstalter: United Teams Rhein-Ruhr e.V.</span>
+    </div>
   </div>
 </footer>
 
+<!-- ══════════ LIGHTBOX ══════════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bild-Vollansicht">
+  <div class="lightbox-inner" id="lightboxInner">
+    <img src="" alt="" id="lightboxImg">
+  </div>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">&#x2715;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Vorheriges Bild">&#x2039;</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Nächstes Bild">&#x203A;</button>
+</div>
+
 <script>
   // Mobile menu
-  const hamburger = document.getElementById('hamburger');
+  const hamburger  = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => {
     const open = mobileMenu.classList.toggle('open');
@@ -1151,14 +1226,14 @@
     hamburger.setAttribute('aria-expanded', 'false');
   }
 
-  // Show nav CTA after hero scrolls out
+  // Nav-CTA einblenden, sobald der Hero weggescrollt ist
   const navCta = document.getElementById('navCta');
   new IntersectionObserver(([e]) => {
     navCta.style.display = e.isIntersecting ? 'none' : 'inline-flex';
   }, { threshold: 0.05 }).observe(document.getElementById('hero'));
 
-  // Countdown
-  const EVENT = new Date('2026-06-13T09:00:00+02:00');
+  // Countdown — 16. Mai 2027
+  const EVENT = new Date('2027-05-16T09:00:00+02:00');
   function setNum(id, val) {
     const el = document.getElementById(id);
     const s = String(val).padStart(2, '0');
@@ -1180,13 +1255,13 @@
   tick();
   setInterval(tick, 1000);
 
-  // Scroll reveal
+  // Scroll-Reveal
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-  // Animated stat counters
+  // Zähler in der Stats-Bar
   function animateCounter(el, target, duration) {
     const start = performance.now();
     const update = now => {
@@ -1207,65 +1282,44 @@
       });
     }
   }, { threshold: 0.4 }).observe(statsBar);
-</script>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bild-Vollansicht">
-  <div class="lightbox-inner" id="lightboxInner">
-    <img src="" alt="" id="lightboxImg">
-  </div>
-  <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">&#x2715;</button>
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Vorheriges Bild">&#x2039;</button>
-  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Nächstes Bild">&#x203A;</button>
-</div>
+  // Lightbox
+  (function(){
+    var lb    = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightboxImg');
+    var items = Array.from(document.querySelectorAll('.gal-item'));
+    var current = 0;
 
-<script>
-(function(){
-  var lb      = document.getElementById('lightbox');
-  var lbImg   = document.getElementById('lightboxImg');
-  var lbInner = document.getElementById('lightboxInner');
-  var items   = Array.from(document.querySelectorAll('.gal-item'));
-  var current = 0;
+    function openAt(idx) {
+      current = (idx + items.length) % items.length;
+      var img = items[current].querySelector('img');
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lightboxClose').focus();
+    }
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+      items[current].focus();
+    }
 
-  function openAt(idx) {
-    current = (idx + items.length) % items.length;
-    var img = items[current].querySelector('img');
-    lbImg.src = img.src;
-    lbImg.alt = img.alt;
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('lightboxClose').focus();
-  }
-
-  function close() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-    lbImg.src = '';
-    items[current].focus();
-  }
-
-  items.forEach(function(item, idx) {
-    item.addEventListener('click', function(e) {
-      e.preventDefault();
-      openAt(idx);
+    items.forEach(function(item, idx) {
+      item.addEventListener('click', function(e) { e.preventDefault(); openAt(idx); });
     });
-  });
-
-  document.getElementById('lightboxClose').addEventListener('click', close);
-  document.getElementById('lightboxPrev').addEventListener('click', function() { openAt(current - 1); });
-  document.getElementById('lightboxNext').addEventListener('click', function() { openAt(current + 1); });
-
-  lb.addEventListener('click', function(e) {
-    if (e.target === lb) close();
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); openAt(current - 1); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); openAt(current + 1); }
-  });
-})();
+    document.getElementById('lightboxClose').addEventListener('click', close);
+    document.getElementById('lightboxPrev').addEventListener('click', function(){ openAt(current - 1); });
+    document.getElementById('lightboxNext').addEventListener('click', function(){ openAt(current + 1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+    document.addEventListener('keydown', function(e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); openAt(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); openAt(current + 1); }
+    });
+  })();
 </script>
 
 </body>
