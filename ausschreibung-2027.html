@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ausschreibung 2027 | Erich-Fill-Triathlon Taunusstein</title>
+  <meta name="description" content="Offizielle Ausschreibung zum 39. Erich-Fill-Triathlon Taunusstein am 16. Mai 2027 — Distanzen, Startgelder, Regeln und Teilnahmebedingungen.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+
+  <style>
+    /* ========= SEITENKOPF ========= */
+    .doc-hero {
+      background: var(--navy); color: var(--t-dark);
+      padding: 4rem 0 3.5rem; position: relative; overflow: hidden;
+    }
+    .doc-kicker {
+      font-family: var(--fu); font-size: .6875rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .18em; color: var(--blue-light);
+      margin-bottom: .8rem;
+    }
+    .doc-title {
+      font-family: var(--fd); font-style: italic; font-weight: 900;
+      font-size: clamp(2.4rem, 6.5vw, 4.4rem); line-height: .98;
+      text-transform: uppercase; color: var(--off); margin-bottom: .6rem;
+    }
+    .doc-sub {
+      font-family: var(--fd); font-weight: 700; text-transform: uppercase;
+      font-size: clamp(1rem, 2.6vw, 1.5rem); letter-spacing: .16em;
+      color: var(--t-dark-mute);
+    }
+    .doc-meta {
+      display: flex; flex-wrap: wrap; gap: .6rem 2rem; margin-top: 1.8rem;
+      font-size: .85rem; color: var(--t-dark-mute);
+    }
+    .doc-meta b { color: var(--off); font-weight: 600; }
+    .doc-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+
+    /* ========= DOKUMENT ========= */
+    .doc { background: var(--pure); color: var(--t-light); padding: 4rem 0 5rem; }
+    .doc .container { max-width: 860px; }
+    .doc-block { margin-bottom: 2.75rem; }
+    .doc-block:last-child { margin-bottom: 0; }
+    .doc h2 {
+      font-family: var(--fd); font-style: italic; font-weight: 900;
+      text-transform: uppercase; font-size: 1.5rem; letter-spacing: -.005em;
+      margin-bottom: .9rem; padding-bottom: .5rem;
+      border-bottom: 2px solid var(--blue);
+    }
+    .doc h3 {
+      font-family: var(--fu); font-weight: 800; text-transform: uppercase;
+      font-size: .82rem; letter-spacing: .1em; color: var(--blue);
+      margin: 1.4rem 0 .45rem;
+    }
+    .doc p { margin-bottom: .8rem; line-height: 1.7; }
+    .doc p:last-child { margin-bottom: 0; }
+    .doc ul { margin: 0 0 .8rem 1.1rem; }
+    .doc li { margin-bottom: .35rem; line-height: 1.65; }
+    .doc strong { font-weight: 600; color: var(--t-light); }
+
+    /* Kenndaten oben */
+    .facts { display: grid; gap: 0; grid-template-columns: 1fr; margin-bottom: 2.75rem;
+             border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+    @media(min-width:620px){ .facts { grid-template-columns: repeat(2,1fr); } }
+    .fact { padding: 1rem 1.2rem; border-top: 1px solid var(--line); }
+    .facts .fact:nth-child(-n+2) { border-top: none; }
+    @media(max-width:619px){ .facts .fact:nth-child(2) { border-top: 1px solid var(--line); } }
+    @media(min-width:620px){ .fact:nth-child(odd) { border-right: 1px solid var(--line); } }
+    .fact dt {
+      font-family: var(--fu); font-size: .65rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .12em; color: var(--mute);
+      margin-bottom: .25rem;
+    }
+    .fact dd { margin: 0; font-weight: 600; font-size: .95rem; }
+
+    /* Gebührentabelle */
+    .fee-wrap { overflow-x: auto; margin-bottom: 1rem; }
+    table.fees { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 460px; }
+    table.fees caption {
+      caption-side: top; text-align: left;
+      font-family: var(--fu); font-weight: 800; text-transform: uppercase;
+      font-size: .78rem; letter-spacing: .1em; color: var(--blue);
+      padding-bottom: .5rem;
+    }
+    table.fees th, table.fees td { padding: .6rem .8rem; border-bottom: 1px solid var(--line); text-align: left; }
+    table.fees thead th {
+      font-family: var(--fu); font-size: .68rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .1em; color: var(--mute);
+      border-bottom: 2px solid var(--line-hi);
+    }
+    table.fees td.num, table.fees th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    table.fees tbody tr:last-child td { border-bottom: none; }
+    table.fees td.period { font-weight: 600; }
+
+    /* Hinweiskasten */
+    .note {
+      border-left: 4px solid var(--blue); background: var(--off);
+      padding: .9rem 1.1rem; border-radius: 0 var(--r) var(--r) 0;
+      font-size: .875rem; margin: 1rem 0;
+    }
+    .note b { color: var(--blue); }
+
+    /* Offene Punkte — bewusst auffällig, auch im Druck */
+    .todo {
+      border-left: 4px solid var(--orange); background: rgba(255,70,0,.07);
+      padding: .9rem 1.1rem; border-radius: 0 var(--r) var(--r) 0;
+      font-size: .875rem; margin: 1rem 0;
+    }
+    .todo b { color: var(--orange-dark); text-transform: uppercase;
+              font-family: var(--fu); font-size: .7rem; letter-spacing: .1em;
+              display: block; margin-bottom: .25rem; }
+
+    .doc-foot {
+      margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
+      font-size: .8rem; color: var(--mute);
+    }
+
+    /* Nur im Druck sichtbar */
+    .print-only { display: none; }
+
+    @media(max-width:1039px){
+      .navbar-inner { flex-wrap: wrap; height: auto; padding-block: .75rem; gap: .75rem; }
+    }
+
+    /* =====================================================
+       DRUCK — A4. Das Dokument ist die Quelle fuer Web und
+       Papier; ueber "Drucken -> Als PDF sichern" faellt die
+       druckfertige Fassung heraus.
+       ===================================================== */
+    @media print {
+      @page { size: A4; margin: 18mm 16mm 20mm; }
+
+      html, body { background: #fff !important; color: #111 !important; font-size: 10.5pt; }
+      header, .navbar, .doc-actions, .site-footer, footer { display: none !important; }
+      .doc-hero { display: none !important; }
+      .print-only { display: block; }
+
+      .doc { padding: 0 !important; background: #fff !important; color: #111 !important; }
+      .doc .container { max-width: none; padding: 0; }
+
+      /* Kopf der ersten Druckseite — Wortmarke statt Logo-PNG,
+         das Logo hat weisse Schrift und waere auf Papier unsichtbar. */
+      .print-head { border-bottom: 2.5pt solid #111; padding-bottom: 6pt; margin-bottom: 14pt; }
+      .print-head .pm {
+        font-family: var(--fd); font-style: italic; font-weight: 900;
+        text-transform: uppercase; font-size: 20pt; line-height: 1; color: #111;
+      }
+      .print-head .ps {
+        font-family: var(--fu); font-weight: 700; text-transform: uppercase;
+        letter-spacing: .18em; font-size: 7.5pt; color: #444; margin-top: 3pt;
+      }
+      .print-head .pd {
+        margin-top: 8pt; font-size: 9.5pt; color: #111; font-weight: 600;
+      }
+
+      .doc h2 {
+        font-size: 12.5pt; color: #111; border-bottom: 1pt solid #111;
+        margin-top: 14pt; margin-bottom: 6pt; padding-bottom: 3pt;
+        break-after: avoid; page-break-after: avoid;
+      }
+      .doc h3 { font-size: 8.5pt; color: #333; margin: 9pt 0 3pt; break-after: avoid; }
+      .doc p, .doc li { font-size: 10pt; line-height: 1.45; color: #111; }
+      .doc-block { margin-bottom: 10pt; break-inside: auto; }
+
+      .facts { border: 1pt solid #111; margin-bottom: 12pt; break-inside: avoid; }
+      .fact { border-top: .5pt solid #999; padding: 5pt 7pt; }
+      .fact dt { color: #444; font-size: 7pt; }
+      .fact dd { font-size: 9.5pt; }
+
+      .fee-wrap { overflow: visible; }
+      table.fees { min-width: 0; font-size: 9.5pt; break-inside: avoid; }
+      table.fees caption { color: #111; font-size: 8.5pt; }
+      table.fees th, table.fees td { padding: 3.5pt 6pt; border-bottom: .5pt solid #999; }
+      table.fees thead th { color: #111; border-bottom: 1pt solid #111; }
+
+      .note, .todo {
+        border-left: 2.5pt solid #111; background: #f2f2f2 !important;
+        padding: 6pt 8pt; font-size: 9pt; break-inside: avoid;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .todo { border-left-color: #b03000; }
+      .todo b, .note b { color: #111; }
+
+      .doc-foot { margin-top: 14pt; font-size: 8.5pt; color: #444; }
+      a { color: #111 !important; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar" aria-label="Hauptnavigation">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand" aria-label="Erich-Fill-Triathlon Taunusstein — zur Startseite">
+        <img src="images/eft-logo-sm.png" alt="Erich-Fill-Triathlon Taunusstein"
+             class="brand-logo" width="440" height="158" loading="eager">
+      </a>
+      <div class="nav-end">
+        <a href="index.html" class="btn btn-outline" style="padding:.55rem 1.2rem;font-size:.75rem">Zur Website</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="doc-hero">
+    <div class="container">
+      <p class="doc-kicker">Offizielles Dokument</p>
+      <h1 class="doc-title">Ausschreibung 2027</h1>
+      <p class="doc-sub">39. Erich-Fill-Triathlon Taunusstein</p>
+      <div class="doc-meta">
+        <span><b>Sonntag, 16. Mai 2027</b></span>
+        <span>Freibad Taunusstein-Hahn</span>
+        <span>Stand: <b>21. September 2026</b> — Entwurf</span>
+      </div>
+      <div class="doc-actions">
+        <a href="https://baer-service.de/anmeldung/EFT" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Anmeldung 2027
+        </a>
+        <button type="button" class="btn btn-outline" onclick="window.print()" style="color:var(--off);border-color:rgba(255,255,255,.28)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Drucken / als PDF sichern
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc">
+    <div class="container">
+
+      <div class="print-only print-head">
+        <div class="pm">Ausschreibung 2027</div>
+        <div class="ps">39. Erich-Fill-Triathlon Taunusstein</div>
+        <div class="pd">Sonntag, 16. Mai 2027 · Freibad Taunusstein-Hahn · Stand: 21.09.2026 (Entwurf)</div>
+      </div>
+
+      <dl class="facts">
+        <div class="fact"><dt>Veranstaltungstermin</dt><dd>Sonntag, 16. Mai 2027</dd></div>
+        <div class="fact"><dt>Wettkampfort</dt><dd>Freibad Taunusstein<br>Zum Schwimmbad, 65232 Taunusstein</dd></div>
+        <div class="fact"><dt>Veranstalter / Ausrichter</dt><dd>United Teams Rhein-Ruhr e.V.</dd></div>
+        <div class="fact"><dt>DTU-Genehmigungsnummer</dt><dd>wird ergänzt</dd></div>
+        <div class="fact"><dt>Wettkampfleitung</dt><dd>United Teams Rhein-Ruhr e.V.</dd></div>
+        <div class="fact"><dt>Wettkampfgericht</dt><dd>Lizenzkampfrichter des HTV e.V.</dd></div>
+      </dl>
+
+      <div class="doc-block">
+        <h2>Distanzen und Formate</h2>
+        <ul>
+          <li><strong>SPRINT</strong> — Einzel und Staffel: 0,5 km Schwimmen, 20 km Radfahren, 5 km Laufen</li>
+          <li><strong>OLYMPISCH</strong> — Einzel und Staffel: 1 km Schwimmen, 40 km Radfahren, 10 km Laufen</li>
+          <li>Hessische Senioren- und Masters-Triathlonligen, Rheinland-Pfälzische Triathlonligen</li>
+        </ul>
+        <div class="todo">
+          <b>Zu klären</b>
+          Unter „Wertungen“ wird eine Kategorie <strong>SCHNUPPER</strong> ausgewertet, die hier nicht
+          aufgeführt ist. Entweder als Format ergänzen oder die Wertung streichen.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <h2>Zulassungskriterien</h2>
+        <p>Grundsätzlich kann am Erich-Fill-Triathlon jeder teilnehmen, sofern keine gesundheitlichen
+        Bedenken bestehen. Mit der Anmeldung erkennt der Teilnehmer die Sportordnung der DTU (SpO),
+        den Anti-Doping-Code (ADC), die Kampfrichterordnung (KrO), die Rechts- und Verfahrensordnung (RVO),
+        die Disziplinarordnung (DzO), die Veranstalterordnung (VaO) sowie die in der Ausschreibung und in
+        der Wettkampfbesprechung formulierten Bedingungen des Veranstalters für sich verbindlich an.</p>
+        <p>Teilnehmer für die <strong>Olympische Distanz</strong> (nur Einzel) benötigen einen gültigen
+        DTU-Startpass, der bei der Abholung der Startunterlagen vorzuweisen ist. Andernfalls muss eine
+        Tageslizenz erworben werden (Kosten 20 €, in bar).</p>
+
+        <h3>Mindestalter</h3>
+        <p>Die Teilnahme in den <strong>SPRINT-Distanzen</strong> ist ab der Altersklasse 17
+        (Jahrgang 2010 und älter) möglich. In der <strong>Olympischen Distanz</strong> ist die Teilnahme
+        ab der Altersklasse 19 (Jahrgang 2008 und älter) möglich.</p>
+        <div class="todo">
+          <b>Bitte gegenprüfen</b>
+          Die Mindestalter wurden gegenüber 2026 um ein Jahr angehoben (Sprint ab AK 16 → 17,
+          Olympisch ab AK 18 → 19) und die Jahrgänge entsprechend umgerechnet. Die Vorlage kannte
+          keine Schüler-Klasse — falls eine ergänzt werden soll, fehlt sie noch. Altersgrenzen sind
+          rechtlich bindend und sollten mit der DTU-Klasseneinteilung für 2027 abgeglichen werden.
+        </div>
+        <p>Jeder Teilnehmer ist für die technische Sicherheit der persönlichen Ausrüstung selbst
+        verantwortlich.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Organisationsgebühren</h2>
+
+        <div class="fee-wrap">
+          <table class="fees">
+            <caption>Sprint — Einzel und Staffel</caption>
+            <thead>
+              <tr><th scope="col">Anmeldezeitraum</th><th scope="col" class="num">Einzel</th><th scope="col" class="num">Staffel</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="period">bis 31.01.2027</td><td class="num">60 €</td><td class="num">70 €</td></tr>
+              <tr><td class="period">01.02.2027 – 31.03.2027</td><td class="num">70 €</td><td class="num">80 €</td></tr>
+              <tr><td class="period">01.04.2027 – 02.05.2027</td><td class="num">80 €</td><td class="num">90 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fee-wrap">
+          <table class="fees">
+            <caption>Olympisch — Einzel und Staffel</caption>
+            <thead>
+              <tr><th scope="col">Anmeldezeitraum</th><th scope="col" class="num">Einzel</th><th scope="col" class="num">Staffel</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="period">bis 31.01.2027</td><td class="num">70 €</td><td class="num">80 €</td></tr>
+              <tr><td class="period">01.02.2027 – 31.03.2027</td><td class="num">80 €</td><td class="num">90 €</td></tr>
+              <tr><td class="period">01.04.2027 – 02.05.2027</td><td class="num">90 €</td><td class="num">100 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <b>Olympische Distanz:</b> DTU-Startpass oder Tageslizenz erforderlich.
+          Die Tageslizenz kostet 20 € und ist bar bei Abholung der Startunterlagen zu zahlen.
+        </div>
+
+        <p>Es bestehen folgende Teilnehmerkontingente: <strong>Sprint 150 Teilnehmer</strong>,
+        <strong>Olympisch 150 Teilnehmer</strong>. Nach Schluss der Onlineanmeldung sind Nachmeldungen
+        nicht mehr möglich.</p>
+        <p>Upgrades, also Höherstufungen zum Beispiel von Sprint auf Olympisch, sind jederzeit gegen
+        Ausgleich des Differenzbetrags möglich. Dazu genügt eine E-Mail an den Veranstalter.</p>
+        <div class="todo">
+          <b>Zu ergänzen</b>
+          Die Vorlage nennt für Upgrades die Adresse <strong>eft@tsg-limbach.de</strong> — die gehört
+          zum bisherigen Veranstalter. Hier fehlt die neue Kontaktadresse.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <h2>Wertungen und Preisgelder</h2>
+        <p>Altersklassenehrungen erfolgen pro Wettkampfformat (nur Sprint und Olympisch), getrennt nach
+        Männern und Frauen. Alle Preise, auch die Preisgelder, werden ausschließlich im Rahmen der
+        Siegerehrung persönlich an die Sieger und Platzierten ausgehändigt.</p>
+
+        <div class="fee-wrap">
+          <table class="fees">
+            <caption>Preisgelder Einzel — je Männer und Frauen</caption>
+            <thead>
+              <tr><th scope="col">Platz</th><th scope="col" class="num">Sprint</th><th scope="col" class="num">Olympisch</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="period">1. Platz</td><td class="num">150 €</td><td class="num">200 €</td></tr>
+              <tr><td class="period">2. Platz</td><td class="num">100 €</td><td class="num">150 €</td></tr>
+              <tr><td class="period">3. Platz</td><td class="num">50 €</td><td class="num">100 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Staffeln</h3>
+        <p>Die Staffelwettbewerbe (Männer, Frauen, Mixed) haben keine Jahrgangswertung. Die jeweils
+        schnellsten Staffeln werden im Rahmen der Siegerehrung mit Sachpreisen geehrt.</p>
+
+        <h3>Schnupper</h3>
+        <p>Die je drei schnellsten Frauen und Männer erhalten einen Sachpreis. Es erfolgt keine
+        Altersklassenwertung.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Verwendung der Organisationsgebühr</h2>
+        <p>Verkehrssicherungsmaßnahmen (Verkehrssicherungsmaterial für Straßensperrungen,
+        Beschilderungen, umfassende Versicherungen), allgemeine Sicherungsmaßnahmen (Wasserrettung,
+        Sanitätsdienste, Feuerwehr), Zeitnahme, Dienstleister, Nutzung des Freibades und der Infrastruktur
+        des Bades, Strom, Abwasser, Toiletten, Radständer, Absperrgitter, behördliche
+        Genehmigungsgebühren, Zielverpflegung, HTV-Genehmigungsgebühren, Kampfrichter,
+        Onlineergebnislisten, Onlineurkunden, Sicherheitsdienste, Transportkosten, Beschallung,
+        Moderation, Badekappen, Startnummern, Grafik, Internet und Verbrauchsmaterial.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Anmeldung</h2>
+        <p>Die Anmeldung erfolgt ausschließlich online. Eine Anmeldung unter falschem Namen ist grob
+        unsportlich und hat den sofortigen Ausschluss zur Folge. Damit darf — im Gegensatz zur
+        Disqualifikation — das Rennen nicht zu Ende gebracht werden. Dies ist aus Versicherungs- und
+        Haftungsgründen erforderlich. Siehe dazu auch die Sportordnung der DTU.</p>
+        <p><strong>Onlineanmeldeschluss ist der 2. Mai 2027 um 23:59 Uhr</strong>, bei Erreichen der
+        Starterlimits entsprechend früher.</p>
+        <div class="todo">
+          <b>Zu bestätigen</b>
+          Der Anmeldeschluss wurde aus dem Abstand der Vorjahresfassung abgeleitet: 2026 lag er rund
+          zwei Wochen vor dem Rennen. Er stimmt mit dem Steckbrief auf der Website überein, sollte aber
+          bestätigt werden. In der Vorlage stand zudem an dieser Stelle „Adresse wird noch ergänzt“ —
+          der Anmeldelink fehlt weiterhin.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <h2>Zeitmessung</h2>
+        <p>Die Zeitmessung erfolgt über Transponder, die im Rahmen des Rad-Check-ins ausgegeben werden
+        und am linken Fuß getragen werden müssen. Bei Verlust des Transponders werden dem Teilnehmer die
+        Wiederbeschaffungskosten in Höhe von 100 € in Rechnung gestellt.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Rücktritt</h2>
+        <p>Die Anmeldung ist verbindlich. Nachmeldungen sind nicht möglich. Ein Anspruch auf
+        Rückerstattung der Startgelder ist ohne Ausnahme ausgeschlossen, auch dann, wenn der
+        Erich-Fill-Triathlon aufgrund höherer Gewalt, aufgrund von Naturkatastrophen, Terroranschlägen,
+        Fällen von Pandemie, behördlicher Anordnung oder aufgrund vom Veranstalter nicht zu vertretender
+        Gründe abgesagt, abgebrochen oder terminlich verschoben werden muss.</p>
+
+        <h3>Kulanzregelung</h3>
+        <p>Sollte der Erich-Fill-Triathlon bis zum Stichtag <strong>2. Mai 2027</strong> von der
+        zuständigen Genehmigungsbehörde untersagt werden, oder sollte eine behördliche Genehmigung bis zu
+        diesem Stichtag zurückgezogen werden, so werden allen Teilnehmern 70 % der Nettostartgelder vom
+        Veranstalter erstattet.</p>
+        <div class="todo">
+          <b>Inhaltlich geändert — bitte prüfen</b>
+          Die Vorlage nannte hier zwei verschiedene Stichtage im selben Absatz: „bis zum Stichtag
+          31. Mai 2026“ und im Folgesatz „bis zum Stichtag <strong>31. Mai 2025</strong>“ — Letzteres lag
+          vor dem Wettkampf des Vorjahres und war erkennbar ein Tippfehler. Beide sind hier auf einen
+          Stichtag zusammengeführt. Außerdem war die Regelung an eine „pandemische Entwicklung“ geknüpft;
+          das ist hier weiter gefasst. Beides sind juristische Aussagen und keine Formulierungsfragen.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <h2>Zeitplan</h2>
+        <p>Der Zeitplan wird unter „Aktuelles“ auf der Website der Veranstaltung bekannt gegeben.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Regeln Wechselzone, Rad-Check-in und Rad-Check-out</h2>
+        <p>Der Check-in in die Wechselzone erfolgt an einem zentralen Zugang. Ein Check-out kann nur mit
+        Startnummer und Rad sowie gegen Rückgabe des Transponders inklusive Befestigungsband erfolgen.</p>
+        <p>Pro Startgruppe steht eine Reihe Radständer zur Verfügung. Diese sind gekennzeichnet und
+        ausschließlich durch die Athleten der jeweiligen Startgruppe zu nutzen.</p>
+        <p>Die Laufwege zu den Wechseln sind gekennzeichnet. Zusätzlich stehen Ordner zur Einweisung zur
+        Verfügung. Wir bitten um besondere Rücksichtnahme beim Verhalten in der Wechselzone.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Regeln Schwimmen</h2>
+        <p>Das Schwimmen erfolgt im 50-Meter-Sportbecken des Freibades Taunusstein. Es stehen insgesamt
+        fünf Bahnen für den Wettbewerb zur Verfügung. Die Teilnehmer müssen die Badekappen des
+        Veranstalters tragen. Das Wasser ist beheizt.</p>
+        <p>Für die Nutzung von Neoprenanzügen gilt die Sportordnung der DTU. Die Entscheidung zur Nutzung
+        wird am Wettkampfmorgen nach Temperaturmessung durch die Kampfrichter bekannt gegeben und per
+        Aushang mitgeteilt.</p>
+        <div class="note">
+          <b>Wichtig:</b> Es muss unbedingt ein Kälteschutzanzug zum Wettkampf mitgebracht werden.
+          Auch wenn das Schwimmen im Schwimmbad stattfindet, können unvorhergesehene Umstände dazu
+          führen, dass ein Schwimmen nur mit Kälteschutzanzug durchgeführt werden darf.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <h2>Regeln Radfahren</h2>
+        <p>Die Radstrecke ist <strong>voll gesperrt</strong>. Es besteht eine entsprechende
+        straßenverkehrsrechtliche Anordnung der Genehmigungsbehörde — ein Sicherheitsaspekt, den nicht
+        alle Triathlonveranstaltungen bieten.</p>
+        <p>Dennoch gilt für die Teilnehmer die Straßenverkehrsordnung. Es besteht Rechtsfahrgebot,
+        Windschattenfahren ist untersagt.</p>
+        <ul>
+          <li>Ein Startnummernaufkleber ist am Rad (Sattelstütze) zu befestigen.</li>
+          <li>Ein weiterer Startnummernaufkleber ist am Helm zu befestigen, von vorne oder von links sichtbar.</li>
+          <li>Die Startnummer ist am Körper zu tragen, von hinten sichtbar.</li>
+        </ul>
+        <p>Jeder Teilnehmer ist für die technische Sicherheit der persönlichen Ausrüstung selbst
+        verantwortlich. Eine Haftung der Kampfrichter oder des Veranstalters beziehungsweise Ausrichters
+        für mangelhaftes Sportgerät ist ausgeschlossen.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Regeln Laufen</h2>
+        <p>Teilnehmer dürfen sich nicht von Nichtteilnehmern betreuen oder begleiten lassen. Die
+        Startnummer ist wegen der zusätzlichen manuellen Zieleinlaufkontrolle von vorne sichtbar zu
+        tragen.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Haftung</h2>
+        <p>Die Teilnahme am Erich-Fill-Triathlon erfolgt auf eigenes Risiko. Die Haftung des Veranstalters
+        und Ausrichters — auch gegenüber Dritten — ist beschränkt auf Vorsatz und grobe Fahrlässigkeit.
+        Dies gilt auch für die vom Veranstalter eingesetzten oder beauftragten Firmen und Helfer.</p>
+        <p>Die Haftung des Veranstalters und Ausrichters für andere Schäden als solche der Verletzung des
+        Lebens, des Körpers oder der Gesundheit ist ausgeschlossen, soweit sie nicht auf einer
+        vorsätzlichen oder grob fahrlässigen Pflichtverletzung des Veranstalters, seines gesetzlichen
+        Vertreters oder seiner Erfüllungsgehilfen beruht.</p>
+        <p>Der Veranstalter haftet nicht für Fahrräder und andere Ausrüstungsgegenstände, die auf dem
+        Gelände oder in der Wechselzone abhandenkommen, ebenso wenig für andere abhandengekommene
+        Gegenstände von Teilnehmern oder Zuschauern. Diese Gegenstände hat der Eigentümer gegen Diebstahl
+        zu versichern.</p>
+        <p>Mit dem Empfang der Startnummer erklärt der Teilnehmer verbindlich, dass gegen seine Teilnahme
+        keine gesundheitlichen Bedenken bestehen.</p>
+      </div>
+
+      <div class="doc-block">
+        <h2>Änderungsvorbehalt</h2>
+        <p>Der Veranstalter des Erich-Fill-Triathlons behält sich vor, notwendige Änderungen und
+        Anpassungen an der Ausschreibung und am Ablauf der Veranstaltung vorzunehmen.</p>
+      </div>
+
+      <p class="doc-foot">
+        Erich-Fill-Triathlon Taunusstein · 39. Auflage · Sonntag, 16. Mai 2027 ·
+        Freibad Taunusstein-Hahn, Zum Schwimmbad, 65232 Taunusstein ·
+        Veranstalter: United Teams Rhein-Ruhr e.V. · Stand: 21.09.2026 (Entwurf)
+      </p>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer ctx-deep">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0;border-top:none">
+      <span>© 2026 Erich-Fill-Triathlon Taunusstein</span>
+      <span><a href="index.html">Zurück zur Website</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
