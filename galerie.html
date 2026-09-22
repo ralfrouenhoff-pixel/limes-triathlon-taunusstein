@@ -8,27 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,800;1,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --volt:  #CCFF00;
-      --orange: #FF4600;
-      --bg:    #10141A;
-      --bg2:   #080B0F;
-      --bg3:   #1A202A;
-      --g2:    #F3F5F2;
-      --g4:    #9BA5B4;
-      --r:     8px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--g2);
-      font-family: 'DM Sans', sans-serif;
-      min-height: 100vh;
-    }
+  <link rel="stylesheet" href="assets/site.css">
 
-    /* NAV */
+  <style>
+    /* ========= TOPBAR ========= */
     .topbar {
       position: sticky; top: 0; z-index: 100;
       background: rgba(8,11,15,.92);
@@ -39,62 +22,41 @@
     }
     .back-link {
       display: flex; align-items: center; gap: .5rem;
-      color: var(--volt); text-decoration: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700; font-size: .9rem; letter-spacing: .08em;
-      text-transform: uppercase;
-      transition: opacity .2s;
+      color: var(--blue-light); text-decoration: none;
+      font-family: var(--fd); font-weight: 700; font-size: .9rem;
+      letter-spacing: .08em; text-transform: uppercase; transition: opacity .2s;
     }
     .back-link:hover { opacity: .75; }
     .back-link svg { flex-shrink: 0; }
     .topbar-logo { height: 2.3rem; width: auto; display: block; flex-shrink: 0; }
-    @media(max-width:600px){ .topbar { gap: .75rem; } .topbar-logo { height: 1.8rem; } }
     .topbar-count {
-      margin-left: auto;
-      font-size: .8rem; color: var(--g4);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      margin-left: auto; font-size: .8rem; color: var(--t-dark-mute);
+      font-family: var(--fd); font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
     }
+    @media(max-width:600px){ .topbar { gap: .75rem; } .topbar-logo { height: 1.8rem; } }
 
-    /* HERO */
+    /* ========= SEITENKOPF ========= */
     .page-hero {
-      padding: 3rem 1.5rem 2rem;
-      text-align: center;
-      background: linear-gradient(to bottom, var(--bg2), var(--bg));
+      padding: 3rem 1.5rem 2rem; text-align: center;
+      background: linear-gradient(to bottom, var(--navy-deep), var(--navy));
     }
-    .page-hero .pretitle {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700; font-size: .75rem;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: var(--volt); margin-bottom: .75rem;
-    }
+    .page-hero .pretitle { color: var(--blue-light); margin-bottom: .75rem; }
+    .page-hero .pretitle::before { display: none; }
     .page-hero h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-style: italic; font-weight: 900;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      line-height: .95; text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 1rem;
+      font-family: var(--fd); font-style: italic; font-weight: 900;
+      font-size: clamp(2.4rem, 6vw, 4rem); line-height: .95;
+      text-transform: uppercase; color: var(--off); margin-bottom: 1rem;
     }
-    .page-hero h1 span { color: var(--volt); }
-    .page-hero p {
-      color: var(--g4); font-size: .9rem; max-width: 36ch; margin: 0 auto;
-    }
+    .page-hero h1 span { color: var(--blue-light); }
+    .page-hero p { color: var(--t-dark-mute); font-size: .9rem; max-width: 36ch; margin: 0 auto; }
 
-    /* GRID */
-    .gallery-wrap {
-      max-width: 1400px; margin: 0 auto;
-      padding: 2rem 1rem 4rem;
-    }
-    .fg-grid {
-      columns: 4 240px;
-      column-gap: .5rem;
-    }
+    /* ========= MASONRY-GITTER ========= */
+    .gallery-wrap { max-width: 1400px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    .fg-grid { columns: 4 240px; column-gap: .5rem; }
     .fg-item {
-      display: block; break-inside: avoid;
-      margin-bottom: .5rem;
-      border-radius: var(--r); overflow: hidden;
-      cursor: zoom-in; position: relative;
+      display: block; break-inside: avoid; margin-bottom: .5rem;
+      border-radius: var(--r); overflow: hidden; cursor: zoom-in; position: relative;
     }
     .fg-item img {
       width: 100%; height: auto; display: block;
@@ -103,15 +65,15 @@
     }
     .fg-item:hover img { transform: scale(1.04); filter: saturate(.92) brightness(1); }
     .fg-item::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(204,255,0,.12), transparent 60%);
-      opacity: 0; transition: opacity .3s;
-      pointer-events: none; border-radius: var(--r);
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(90,155,208,.16), transparent 60%);
+      opacity: 0; transition: opacity .3s; pointer-events: none; border-radius: var(--r);
     }
     .fg-item:hover::after { opacity: 1; }
 
-    /* LIGHTBOX */
+    /* ========= LIGHTBOX =========
+       Eigene Fassung: hat Zaehler und Wisch-Geste, die die
+       Lightbox der Startseite nicht braucht. */
     .lb {
       display: none; position: fixed; inset: 0; z-index: 1000;
       background: rgba(8,11,15,.97); backdrop-filter: blur(8px);
@@ -123,49 +85,35 @@
       display: flex; align-items: center; justify-content: center;
     }
     .lb-inner img {
-      max-width: 92vw; max-height: 90vh;
-      object-fit: contain; border-radius: var(--r);
-      box-shadow: 0 0 80px rgba(204,255,0,.15);
-      display: block;
+      max-width: 92vw; max-height: 90vh; object-fit: contain;
+      border-radius: var(--r); display: block;
     }
-    .lb-close {
-      position: fixed; top: 1rem; right: 1.25rem;
-      background: none; border: 2px solid rgba(255,255,255,.2);
-      color: #fff; width: 2.75rem; height: 2.75rem;
-      border-radius: 50%; font-size: 1.3rem;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: border-color .2s, background .2s; z-index: 1001;
-    }
-    .lb-close:hover { border-color: var(--volt); background: rgba(204,255,0,.12); }
-    .lb-counter {
-      position: fixed; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-      font-size: .85rem; letter-spacing: .1em; text-transform: uppercase;
-      color: var(--g4); z-index: 1001;
-    }
-    .lb-nav {
-      position: fixed; top: 50%; transform: translateY(-50%);
-      background: none; border: 2px solid rgba(255,255,255,.18);
-      color: #fff; width: 3rem; height: 3rem; border-radius: 50%;
-      font-size: 1.5rem; cursor: pointer;
+    .lb-close, .lb-nav {
+      position: fixed; background: none; border: 2px solid rgba(255,255,255,.2);
+      color: #fff; border-radius: 50%; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: border-color .2s, background .2s; z-index: 1001;
     }
-    .lb-nav:hover { border-color: var(--volt); background: rgba(204,255,0,.12); }
+    .lb-close { top: 1rem; right: 1.25rem; width: 2.75rem; height: 2.75rem; font-size: 1.3rem; }
+    .lb-nav { top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; font-size: 1.5rem; }
+    .lb-close:hover, .lb-nav:hover { border-color: var(--blue-light); background: rgba(90,155,208,.14); }
+    .lb-counter {
+      position: fixed; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+      font-family: var(--fd); font-weight: 700; font-size: .85rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--t-dark-mute); z-index: 1001;
+    }
     .lb-prev { left: 1rem; }
     .lb-next { right: 1rem; }
-    @media(max-width: 600px) {
-      .lb-nav { display: none; }
-      .fg-grid { columns: 2 140px; }
-    }
+    @media(max-width:600px){ .lb-nav { display: none; } .fg-grid { columns: 2 140px; } }
 
-    /* FOOTER */
+    /* ========= FUSS ========= */
     .page-footer {
       text-align: center; padding: 2rem 1rem;
       border-top: 1px solid rgba(255,255,255,.06);
-      font-size: .8rem; color: var(--g4);
+      font-size: .8rem; color: var(--t-dark-mute);
     }
-    .page-footer a { color: var(--volt); text-decoration: none; }
+    .page-footer a { color: var(--blue-light); text-decoration: none; }
     .page-footer a:hover { text-decoration: underline; }
   </style>
 </head>
