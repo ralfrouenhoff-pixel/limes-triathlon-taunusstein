@@ -24,7 +24,7 @@
     --c-orange:      #FF4600;
     --c-orange-soft: #FF6A33;
     --c-green:       #BFE03A;
-    --c-gray:        #5B6673;
+    --c-gray:        #9BA5B4;   /* gedaempft auf dunklem Grund — so nutzt es das Briefing */
     --c-gray-2:      #DCE3EA;
     --c-light:       #F3F5F2;
     --c-white:       #FFFFFF;
@@ -986,6 +986,48 @@ h1 { font-size: clamp(2.4rem, 7vw, 5rem); }
 .section-dark .acc-body li,
 .section-dark .acc-body p { color: var(--t-dark-mute); }
 .section-dark .accordion summary:hover { background: rgba(255,255,255,.04); }
+
+/* Hervorhebungen im Fliesstext: das Briefing faerbt <strong> in der
+   dunklen Textfarbe fuer helle Flaechen. Auf den dunklen Abschnitten
+   ergab das 1,13:1 — unlesbar. Orange traegt dort 5,4:1 und dient
+   zugleich als Scan-Hilfe in den langen Regellisten. */
+/* Genug Spezifitaet, um .accordion .acc-body strong zu schlagen */
+.section-dark strong,
+.section-dark b,
+.section-dark .accordion .acc-body strong,
+.hero strong,
+.hero b { color: var(--orange); }
+
+/* Orange traegt auf hellem Grund nur 3,4:1 — dort die
+   abgedunkelte Variante, wie auf der uebrigen Website. */
+.section-light strong, .section-alt strong,
+.section-light .ico, .section-alt .ico,
+.section-light .info-block strong, .section-alt .info-block strong { color: var(--orange-dark); }
+
+/* Gedaempfte Kleintexte auf dunklem Grund */
+.section-dark .muted, .section-dark .stat-sub, .section-dark small,
+.hero .muted, .hero .stat-sub, .hero small, .hero .sub,
+.hero-card .sub, .hero-meta small { color: var(--t-dark-mute); }
+.stat .stat-sub { color: inherit; opacity: .78; }
+
+/* Orange auf hellem Grund: #FF4600 traegt dort nur 3,1-3,4:1.
+   Diese Stellen stammen aus der Originalfassung und fielen schon
+   dort durch. Farbrollen bleiben erhalten, nur abgedunkelt. */
+.section-light a:not(.btn), .section-alt a:not(.btn) { color: var(--orange-dark); }
+.section-dark a:not(.btn), .hero a:not(.btn) { color: var(--orange); }
+.section-light .timeline-time, .section-alt .timeline-time { color: var(--orange-dark); }
+
+/* Kategorie-Chips im Zeitplan: Farbcodierung bleibt, Textfarbe
+   tief genug fuer 11px Versalien auf getoenter Flaeche. */
+.tag-start   { color: #9E3200; }
+.tag-checkin { color: #3D6600; }
+
+/* Weiss auf Volt und Orange traegt nicht — dort Navy, genau wie
+   bei den Buttons. Der Laufen-Kopf stand auf 1,5:1. */
+.discipline.run .discipline-head,
+.discipline.run .discipline-head h3,
+.discipline.run .discipline-head .dists { color: var(--navy); }
+.badge:not(.info):not(.danger):not(.ok) { color: var(--navy); }
 
   </style>
 </head>
