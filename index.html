@@ -270,9 +270,14 @@
 
     /* ========= HERO ========= */
     .hero {
-      position: relative; min-height: 100vh;
+      position: relative;
+      /* Der Hero beginnt unter der 5rem hohen Navbar — ohne den Abzug
+         ragt er strukturell immer um deren Höhe über den Rand hinaus.
+         svh statt vh: rechnet mit sichtbarer Browserleiste auf Mobil. */
+      min-height: calc(100vh - 5rem);
+      min-height: calc(100svh - 5rem);
       display: flex; align-items: center;
-      overflow: hidden; padding: 7rem 0 6rem;
+      overflow: hidden; padding: 5rem 0 4.5rem;
       background: var(--navy);
     }
     /* .container ist hier Flex-Item — ohne width:100% schrumpft es auf Inhaltsbreite */
@@ -327,7 +332,28 @@
 
     /* Hügellinie direkt über dem Titel — das Logo, monumentalisiert */
     .hero-title { margin-bottom: 1.9rem; animation: riseIn .7s ease .18s both; }
-    .hero-logo { width: min(100%, 41rem); height: auto; display: block; }
+    .hero-logo { width: min(100%, 38rem); height: auto; display: block; }
+
+    /* Flache Viewports (13"-Laptops, Handys quer, kleine Handys):
+       Hier ist Höhe knapp, nicht Breite — deshalb greift eine
+       Höhen-Query, damit der Anmelde-Button über der Kante bleibt. */
+    @media (max-height: 880px){
+      .hero { padding: 3rem 0 3rem; }
+      .hero-logo { width: min(100%, 29rem); }
+      .hero-eyebrow { margin-bottom: 1.1rem; }
+      .hero-title { margin-bottom: 1.1rem; }
+      .hero-sub { margin-bottom: 1.4rem; }
+      .countdown { margin-bottom: 1.4rem; gap: .55rem; }
+      .cd-unit { padding: .7rem 1rem; min-width: 4.4rem; }
+      /* .hero davor, sonst gewinnt die spätere .scroll-hint-Regel */
+      .hero .scroll-hint { display: none; }
+    }
+    @media (max-height: 880px) and (max-width: 560px){
+      .hero-sub { font-size: .95rem; margin-bottom: 1.1rem; }
+      .hero-eyebrow { margin-bottom: .9rem; }
+      .hero-ctas { gap: .6rem; }
+      .hero-ctas .btn-xl { padding: .9rem 2rem; font-size: .9rem; }
+    }
 
     .hero-sub {
       font-size: clamp(1rem, 2.2vw, 1.15rem); color: #C7CFD9;
