@@ -1029,6 +1029,13 @@ h1 { font-size: clamp(2.4rem, 7vw, 5rem); }
 .discipline.run .discipline-head .dists { color: var(--navy); }
 .badge:not(.info):not(.danger):not(.ok) { color: var(--navy); }
 
+/* Das Badge steht im DOM vor dem Bild und hatte kein z-index.
+   Beim Hover erzeugt transform:scale am Bild einen eigenen
+   Stacking-Kontext; es rutscht damit in die Ebene der
+   positionierten Elemente und ueberdeckt das Badge, weil es
+   spaeter im Baum steht. Explizites z-index loest das. */
+.map-card .img-wrap .badge { z-index: 2; }
+
   </style>
 </head>
 <body data-theme="light">
