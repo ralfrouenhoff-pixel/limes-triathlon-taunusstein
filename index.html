@@ -43,9 +43,11 @@
        DESIGN TOKENS — UTRR Markenfarben
        ========================================================= */
     :root {
-      /* Markenfarben — nicht verändern */
-      --volt:       #CCFF00;
-      --volt-deep:  #B8E600;
+      /* Markenfarben */
+      --volt:       #BFE03A;   /* abgemildert; UTRR-Original ist #CCFF00 */
+      --volt-deep:  #A9CB22;
+      --blue:       #0D4F84;   /* Blau aus der Logo-Hügellinie */
+      --blue-light: #5A9BD0;   /* dieselbe Farbe aufgehellt für dunkle Flächen */
       --orange:     #FF4600;   /* UTRR-Primärfarbe */
       --orange-dark:#CC3800;   /* abgedunkelt für Kleintext auf hellem Grund */
 
@@ -73,6 +75,9 @@
       --line-hi: rgba(255,255,255,.20);
       /* Orange als Textfarbe — auf hellem Grund abgedunkelt, sonst fällt es durch AA */
       --orange-text: var(--orange);
+      /* Zweitakzent: übernimmt alles, was vorher Volt machte.
+         Auf Dunkel die aufgehellte Variante, auf Hell das Logo-Blau. */
+      --accent2: var(--blue-light);
 
       /* Typografie */
       --fd: 'Barlow Condensed', sans-serif;
@@ -98,6 +103,7 @@
     }
     .ctx-light {
       --orange-text: var(--orange-dark);
+      --accent2: var(--blue);
       --bg: var(--off); --surface: var(--pure);
       --txt: var(--t-light); --mute: var(--t-light-mute);
       --line: rgba(16,20,26,.12); --line-hi: rgba(16,20,26,.28);
@@ -105,6 +111,7 @@
     }
     .ctx-white {
       --orange-text: var(--orange-dark);
+      --accent2: var(--blue);
       --bg: var(--pure); --surface: var(--off);
       --txt: var(--t-light); --mute: var(--t-light-mute);
       --line: rgba(16,20,26,.10); --line-hi: rgba(16,20,26,.26);
@@ -146,7 +153,7 @@
       line-height: 0; z-index: 2; pointer-events: none;
     }
     .hill-divider svg { display: block; width: 100%; height: clamp(44px, 5.5vw, 88px); }
-    .hill-divider .hill-line { fill: none; stroke: var(--volt); stroke-width: 2.5; opacity: .45; }
+    .hill-divider .hill-line { fill: none; stroke: var(--blue-light); stroke-width: 2.5; opacity: .5; }
     .to-light .hill-fill { fill: var(--off); }
     .to-white .hill-fill { fill: var(--pure); }
     .to-dark  .hill-fill { fill: var(--navy); }
@@ -177,7 +184,7 @@
     }
     .pretitle::before {
       content: ''; display: block; width: 1.5rem; height: 3px;
-      background: var(--volt); border-radius: 2px;
+      background: var(--accent2); border-radius: 2px;
     }
     .sec-title {
       font-family: var(--fd); font-size: clamp(2.1rem, 5.2vw, 3.6rem);
@@ -187,7 +194,7 @@
     .sec-head { max-width: 720px; margin: 0 auto 3.5rem; text-align: center; }
     .sec-head .pretitle::before { display: none; }
     .sec-sub { color: var(--mute); margin-top: 1rem; font-size: 1rem; line-height: 1.75; }
-    .volt { color: var(--volt); }
+    .volt { color: var(--accent2); }
 
     /* ========= BUTTONS ========= */
     .btn {
@@ -228,7 +235,7 @@
       text-transform: uppercase; letter-spacing: .12em;
       border: 1px solid var(--line-hi); color: var(--mute);
     }
-    .badge-volt { background: var(--volt); border-color: var(--volt); color: var(--navy); }
+    .badge-volt { background: var(--accent2); border-color: var(--accent2); color: #fff; }
     .badge-orange { background: transparent; border-color: var(--orange-text); color: var(--orange-text); }
 
     /* ========= NAV ========= */
@@ -249,7 +256,7 @@
       color: var(--t-dark-mute); text-transform: uppercase; letter-spacing: .08em;
       padding: .4rem 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
     }
-    .nav-links a:hover, .nav-links a.active { color: var(--volt); border-bottom-color: var(--volt); }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue-light); border-bottom-color: var(--blue-light); }
     .nav-end { display: flex; align-items: center; gap: .75rem; }
     #navCta { display: none; }
     .hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .5rem; color: var(--t-dark); }
@@ -265,7 +272,7 @@
       color: var(--t-dark-mute); text-transform: uppercase; letter-spacing: .07em;
       border-bottom: 1px solid rgba(255,255,255,.05); transition: color .2s, background .2s;
     }
-    .mobile-menu a:hover { color: var(--volt); background: rgba(204,255,0,.06); }
+    .mobile-menu a:hover { color: var(--blue-light); background: rgba(90,155,208,.08); }
     .mobile-menu .btn { margin: 1rem 1.5rem; width: calc(100% - 3rem); }
 
     /* ========= HERO ========= */
@@ -313,7 +320,7 @@
       pointer-events: none;
     }
     .hero-hills svg { width: 100%; height: auto; display: block; }
-    .hero-hills .h1 { fill: none; stroke: var(--volt); stroke-width: 2; opacity: .20; }
+    .hero-hills .h1 { fill: none; stroke: var(--blue-light); stroke-width: 2; opacity: .22; }
     .hero-hills .h2 { fill: none; stroke: #fff;        stroke-width: 2; opacity: .09; }
     .hero-hills .h3 { fill: none; stroke: #fff;        stroke-width: 2; opacity: .05; }
 
@@ -322,12 +329,12 @@
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: .65rem;
       padding: .45rem 1.1rem; margin-bottom: 2rem; border-radius: var(--pill);
-      background: rgba(204,255,0,.10); border: 1px solid rgba(204,255,0,.35);
+      background: rgba(90,155,208,.12); border: 1px solid rgba(90,155,208,.38);
       font-family: var(--fu); font-size: .6875rem; font-weight: 800;
-      text-transform: uppercase; letter-spacing: .14em; color: var(--volt);
+      text-transform: uppercase; letter-spacing: .14em; color: var(--blue-light);
       animation: riseIn .6s ease .05s both;
     }
-    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--volt); animation: blink 2.4s ease-in-out infinite; }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue-light); animation: blink 2.4s ease-in-out infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
     /* Hügellinie direkt über dem Titel — das Logo, monumentalisiert */
@@ -375,7 +382,7 @@
       font-family: var(--fd); font-size: clamp(1.9rem, 5vw, 2.85rem);
       font-weight: 900; line-height: 1; letter-spacing: -.02em; color: var(--off);
     }
-    .cd-num.days { color: var(--volt); }
+    .cd-num.days { color: var(--blue-light); }
     .cd-label { font-family: var(--fu); font-size: .55rem; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; color: var(--t-dark-mute); margin-top: .45rem; }
     @keyframes cdFlip { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
     .cd-num.flip { animation: cdFlip .22s ease forwards; }
@@ -406,7 +413,7 @@
     .stat { text-align: center; }
     .stat-num-wrap { display: flex; align-items: baseline; justify-content: center; gap: .08rem; }
     .stat-num { font-family: var(--fd); font-size: clamp(2.1rem, 5vw, 3.1rem); font-weight: 900; line-height: 1; color: var(--txt); }
-    .stat-sfx { font-family: var(--fd); font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 900; color: var(--volt); line-height: 1; }
+    .stat-sfx { font-family: var(--fd); font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 900; color: var(--blue-light); line-height: 1; }
     .stat-lbl { font-family: var(--fu); font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .17em; color: var(--mute); margin-top: .4rem; }
     .stats-div { width: 1px; height: 2.5rem; background: var(--line); }
     @media(max-width:599px){ .stats-div { display: none; } }
@@ -424,7 +431,7 @@
     }
     .news-card:hover { transform: translateY(-5px); border-color: var(--line-hi); box-shadow: 0 14px 32px rgba(16,20,26,.10); }
     .news-bar { height: 4px; background: var(--line-hi); }
-    .bar-volt { background: var(--volt); }
+    .bar-volt { background: var(--accent2); }
     .bar-orange { background: var(--orange); }
     .news-body { padding: 1.6rem; }
     .news-meta { display: flex; justify-content: space-between; align-items: center; gap: .75rem; margin-bottom: .9rem; }
@@ -449,7 +456,7 @@
       border: 1px solid rgba(255,255,255,.10);
       transition: transform .35s ease, border-color .35s ease;
     }
-    .disc-card:hover { transform: translateY(-6px); border-color: rgba(204,255,0,.45); }
+    .disc-card:hover { transform: translateY(-6px); border-color: rgba(90,155,208,.55); }
     .disc-card-img {
       position: absolute; inset: 0; z-index: -2;
       width: 100%; height: 100%; object-fit: cover;
@@ -463,7 +470,7 @@
     }
     .disc-idx {
       font-family: var(--fu); font-size: .65rem; font-weight: 800;
-      text-transform: uppercase; letter-spacing: .2em; color: var(--volt);
+      text-transform: uppercase; letter-spacing: .2em; color: var(--blue-light);
       margin-bottom: .5rem;
     }
     .disc-name {
@@ -476,7 +483,7 @@
       display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
     }
     .disc-foot-lbl { font-family: var(--fu); font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #9BA5B4; }
-    .disc-foot-val { font-family: var(--fd); font-size: 1.25rem; font-weight: 900; color: var(--volt); letter-spacing: .01em; }
+    .disc-foot-val { font-family: var(--fd); font-size: 1.25rem; font-weight: 900; color: var(--off); letter-spacing: .01em; }
 
     /* ========= ATMOSPHERE ========= */
     .atmo {
@@ -486,7 +493,7 @@
     .atmo img { width: 100%; height: 100%; object-fit: cover; object-position: center 32%; filter: saturate(.6) brightness(.72); }
     .atmo-veil {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, var(--navy) 0%, transparent 26%, transparent 72%, var(--pure) 100%);
+      background: linear-gradient(to bottom, var(--navy) 0%, transparent 26%, transparent 72%, var(--off) 100%);
     }
 
     /* ========= INFO-KARTEN ========= */
@@ -495,7 +502,7 @@
     @media(min-width:960px){ .info-grid { grid-template-columns: repeat(3,1fr); } }
     .info-card {
       padding: 1.7rem; background: var(--surface);
-      border: 1px solid var(--line); border-left: 4px solid var(--volt);
+      border: 1px solid var(--line); border-left: 4px solid var(--accent2);
       border-radius: var(--r);
       transition: transform .3s, box-shadow .3s;
     }
@@ -517,8 +524,8 @@
       background: var(--surface); border: 1px solid var(--line);
       transition: transform .3s, border-color .3s;
     }
-    .arc-card:hover { transform: translateY(-5px); border-color: var(--volt); }
-    .arc-kicker { font-family: var(--fu); font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: var(--volt); }
+    .arc-card:hover { transform: translateY(-5px); border-color: var(--accent2); }
+    .arc-kicker { font-family: var(--fu); font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: var(--accent2); }
     .arc-title { font-family: var(--fd); font-size: 1.7rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -.01em; }
     .arc-text { font-size: .83rem; color: var(--mute); line-height: 1.7; }
     .arc-more {
@@ -527,7 +534,7 @@
       text-transform: uppercase; letter-spacing: .1em; color: var(--txt);
       display: inline-flex; align-items: center; gap: .45rem;
     }
-    .arc-card:hover .arc-more { color: var(--volt); }
+    .arc-card:hover .arc-more { color: var(--accent2); }
 
     /* ========= GALERIE ========= */
     .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .6rem; }
@@ -551,7 +558,7 @@
     @media(min-width:920px){ .ausschr-grid { grid-template-columns: 1.05fr 1fr; } }
     .steckbrief { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; }
     .sb-head {
-      padding: 1.15rem 1.7rem; background: var(--volt); color: var(--navy);
+      padding: 1.15rem 1.7rem; background: var(--blue); color: #fff;
       font-family: var(--fu); font-size: .8125rem; font-weight: 800;
       text-transform: uppercase; letter-spacing: .13em;
     }
@@ -597,11 +604,11 @@
     .footer { position: relative; padding: 4rem 0 2.5rem; overflow: hidden; }
     .footer-hills { position: absolute; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; }
     .footer-hills svg { width: 100%; height: auto; display: block; }
-    .footer-hills path { fill: none; stroke: var(--volt); stroke-width: 2; opacity: .12; }
+    .footer-hills path { fill: none; stroke: var(--blue-light); stroke-width: 2; opacity: .16; }
     .footer-inner { position: relative; z-index: 1; display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
     @media(min-width:820px){ .footer-inner { grid-template-columns: 1.2fr 1fr 1fr; } }
     .footer-meta { margin-top: 1.2rem; font-size: .82rem; color: var(--t-dark-mute); line-height: 1.8; }
-    .footer-meta .date { color: var(--volt); font-weight: 700; }
+    .footer-meta .date { color: var(--blue-light); font-weight: 700; }
     .footer-h {
       font-family: var(--fu); font-size: .68rem; font-weight: 800;
       text-transform: uppercase; letter-spacing: .16em; color: var(--t-dark);
@@ -609,7 +616,7 @@
     }
     .footer-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
     .footer-list a { font-size: .85rem; color: var(--t-dark-mute); transition: color .2s; }
-    .footer-list a:hover { color: var(--volt); }
+    .footer-list a:hover { color: var(--blue-light); }
     .footer-bottom {
       position: relative; z-index: 1;
       margin-top: 3rem; padding-top: 1.5rem;
@@ -637,7 +644,7 @@
     }
     .lightbox-close { top: 1.25rem; right: 1.5rem; width: 2.75rem; height: 2.75rem; font-size: 1.4rem; line-height: 1; }
     .lightbox-nav { top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; font-size: 1.4rem; }
-    .lightbox-close:hover, .lightbox-nav:hover { border-color: var(--volt); background: rgba(204,255,0,.12); }
+    .lightbox-close:hover, .lightbox-nav:hover { border-color: var(--blue-light); background: rgba(90,155,208,.14); }
     .lightbox-prev { left: 1rem; } .lightbox-next { right: 1rem; }
     @media(max-width:640px){ .lightbox-nav { display: none; } }
 
@@ -924,7 +931,7 @@
   </div>
 
   <!-- ══════════ ATHLETENINFOS (weiß) ══════════ -->
-  <section class="section ctx-white has-divider" id="athleteninfos" aria-labelledby="infoH2">
+  <section class="section ctx-light has-divider" id="athleteninfos" aria-labelledby="infoH2">
     <div class="container">
       <div class="sec-head">
         <p class="pretitle">Für Teilnehmer</p>
@@ -970,16 +977,16 @@
       </div>
     </div>
 
-    <!-- Übergang weiß → dunkel -->
-    <div class="hill-divider to-dark" aria-hidden="true">
+    <!-- Übergang Off-White → Weiß -->
+    <div class="hill-divider to-white" aria-hidden="true">
       <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
         <path class="hill-fill" d="M0,52 C140,86 280,94 440,66 C600,38 720,80 880,82 C1040,84 1170,40 1310,34 C1375,31 1418,42 1440,48 L1440,110 L0,110 Z"/>
       </svg>
     </div>
   </section>
 
-  <!-- ══════════ ARCHIV 2026 (dunkel) ══════════ -->
-  <section class="section ctx-dark" id="archiv" aria-labelledby="arcH2">
+  <!-- ══════════ ARCHIV 2026 (weiß) ══════════ -->
+  <section class="section ctx-white has-divider" id="archiv" aria-labelledby="arcH2">
     <div class="container">
       <div class="sec-head">
         <p class="pretitle">Rückblick</p>
@@ -1020,10 +1027,17 @@
         </a>
       </div>
     </div>
+
+    <!-- Übergang weiß → dunkel -->
+    <div class="hill-divider to-dark" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+        <path class="hill-fill" d="M0,58 C150,92 300,90 460,60 C620,30 740,76 900,80 C1060,84 1180,38 1320,32 C1380,29 1420,40 1440,46 L1440,110 L0,110 Z"/>
+      </svg>
+    </div>
   </section>
 
   <!-- ══════════ GALERIE (dunkel) ══════════ -->
-  <section class="section ctx-dark has-divider" id="galerie" aria-labelledby="galH2" style="padding-top:0">
+  <section class="section ctx-dark has-divider" id="galerie" aria-labelledby="galH2">
     <div class="container">
       <div class="sec-head">
         <p class="pretitle">Impressionen</p>
