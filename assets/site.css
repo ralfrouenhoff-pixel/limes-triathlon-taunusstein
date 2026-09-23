@@ -310,6 +310,114 @@ a   { color: inherit; text-decoration: none; }
   font-size: .78rem; color: var(--t-dark-mute);
 }
 
+
+/* ========= DOKUMENTSEITEN =========
+   Fliesstext-Seiten wie Ausschreibung, Impressum, Datenschutz.
+   Enthaelt auch die Druckgrundlage: ueber "Drucken -> Als PDF
+   sichern" faellt aus jeder dieser Seiten ein A4-Dokument heraus.
+   ================================== */
+/* Dokumentseiten sind hell — deshalb muessen hier dieselben
+   Kontextvariablen gelten wie bei .ctx-white. Ohne das bleibt
+   --mute der helle Grauton fuer dunkle Flaechen, und Kleintext
+   wie die Fusszeile faellt auf 2,5:1 durch. */
+.doc {
+  --orange-text: var(--orange-dark);
+  --accent2: var(--blue);
+  --bg: var(--pure); --surface: var(--off);
+  --txt: var(--t-light); --mute: var(--t-light-mute);
+  --line: rgba(16,20,26,.10); --line-hi: rgba(16,20,26,.26);
+  background: var(--bg); color: var(--txt);
+  padding: 4rem 0 5rem;
+}
+.doc .container { max-width: 860px; }
+.doc-block { margin-bottom: 2.75rem; }
+.doc-block:last-child { margin-bottom: 0; }
+.doc h2 {
+  font-family: var(--fd); font-style: italic; font-weight: 900;
+  text-transform: uppercase; font-size: 1.5rem; letter-spacing: -.005em;
+  margin-bottom: .9rem; padding-bottom: .5rem;
+  border-bottom: 2px solid var(--blue);
+}
+.doc h3 {
+  font-family: var(--fu); font-weight: 800; text-transform: uppercase;
+  font-size: .82rem; letter-spacing: .1em; color: var(--blue);
+  margin: 1.4rem 0 .45rem;
+}
+.doc p { margin-bottom: .8rem; line-height: 1.7; }
+.doc p:last-child { margin-bottom: 0; }
+.doc ul { margin: 0 0 .8rem 1.1rem; }
+.doc li { margin-bottom: .35rem; line-height: 1.65; }
+.doc strong { font-weight: 600; color: var(--t-light); }
+.doc a { color: var(--orange-dark); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Sachhinweis */
+.note {
+  border-left: 4px solid var(--blue); background: var(--off);
+  padding: .9rem 1.1rem; border-radius: 0 var(--r) var(--r) 0;
+  font-size: .875rem; margin: 1rem 0;
+}
+.note b { color: var(--blue); }
+
+/* Offene Punkte — bewusst auffaellig, auch im Druck */
+.todo {
+  border-left: 4px solid var(--orange); background: rgba(255,70,0,.07);
+  padding: .9rem 1.1rem; border-radius: 0 var(--r) var(--r) 0;
+  font-size: .875rem; margin: 1rem 0;
+}
+.todo b {
+  color: var(--orange-dark); text-transform: uppercase;
+  font-family: var(--fu); font-size: .7rem; letter-spacing: .1em;
+  display: block; margin-bottom: .25rem;
+}
+
+.doc-foot {
+  margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
+  font-size: .8rem; color: var(--mute);
+}
+
+.print-only { display: none; }
+
+@media print {
+  @page { size: A4; margin: 18mm 16mm 20mm; }
+  html, body { background: #fff !important; color: #111 !important; font-size: 10.5pt; }
+  header, .navbar, .doc-actions, .footer, footer { display: none !important; }
+  .doc-hero { display: none !important; }
+  .print-only { display: block; }
+  .doc { padding: 0 !important; background: #fff !important; color: #111 !important; }
+  .doc .container { max-width: none; padding: 0; }
+
+  /* Kopf der ersten Druckseite — Wortmarke statt Logo-PNG, dessen
+     Schrift weiss ist und auf Papier unsichtbar waere. */
+  .print-head { border-bottom: 2.5pt solid #111; padding-bottom: 6pt; margin-bottom: 14pt; }
+  .print-head .pm {
+    font-family: var(--fd); font-style: italic; font-weight: 900;
+    text-transform: uppercase; font-size: 20pt; line-height: 1; color: #111;
+  }
+  .print-head .ps {
+    font-family: var(--fu); font-weight: 700; text-transform: uppercase;
+    letter-spacing: .18em; font-size: 7.5pt; color: #444; margin-top: 3pt;
+  }
+  .print-head .pd { margin-top: 8pt; font-size: 9.5pt; color: #111; font-weight: 600; }
+
+  .doc h2 {
+    font-size: 12.5pt; color: #111; border-bottom: 1pt solid #111;
+    margin-top: 14pt; margin-bottom: 6pt; padding-bottom: 3pt;
+    break-after: avoid; page-break-after: avoid;
+  }
+  .doc h3 { font-size: 8.5pt; color: #333; margin: 9pt 0 3pt; break-after: avoid; }
+  .doc p, .doc li { font-size: 10pt; line-height: 1.45; color: #111; }
+  .doc a { color: #111 !important; }
+  .doc-block { margin-bottom: 10pt; }
+  .note, .todo {
+    border-left: 2.5pt solid #111; background: #f2f2f2 !important;
+    padding: 6pt 8pt; font-size: 9pt; break-inside: avoid;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .todo { border-left-color: #b03000; }
+  .todo b, .note b { color: #111; }
+  .doc-foot { margin-top: 14pt; font-size: 8.5pt; color: #444; }
+}
+
 /* ========= REVEAL ========= */
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity .65s ease, transform .65s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
